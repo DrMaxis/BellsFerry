@@ -11,5 +11,52 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-   .sass('resources/sass/app.scss', 'public/css');
+
+
+   /**
+    * 
+    *  JAVASCRIPT
+    * 
+        @FACES 
+
+        Bootstrap
+        jQuery
+        Modernizer
+        Main 
+        Counter 
+        Carasol  
+    * 
+    */
+
+   mix.js('resources/js/bootstrap.js', 'public/js');
+   mix.js('resources/js/jquery.js', 'public/js');
+   mix.js('resources/js/modernizer.js', 'public/js');
+   mix.js('resources/js/jj-main.js', 'public/js');
+   mix.js('resources/js/counter.js', 'public/js');
+   mix.js('resources/js/carousel.js', 'public/js');
+   
+
+
+
+    /** 
+     * 
+     *  CSS
+     * 
+     *   @FACES
+     * 
+     *   Bootstrap
+     *   Carasol
+     *   Animations
+     *   Main
+     */
+
+    mix.sass('resources/sass/bootstrap.scss', 'public/css');
+    mix.sass('resources/sass/carousel.scss', 'public/css');
+    mix.sass('resources/sass/animations.scss', 'public/css');
+    mix.sass('resources/sass/jj-main.scss', 'public/css');
+    
+
+     
+
+
+   
