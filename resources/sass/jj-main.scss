@@ -1,17 +1,18 @@
 @font-face {
-    font-family: 'icomoon';
-    src: url("../fonts/icomoon/icomoon.eot?srf3rx");
-    src: url("../fonts/icomoon/icomoon.eot?srf3rx#iefix") format("embedded-opentype"), url("../fonts/icomoon/icomoon.ttf?srf3rx") format("truetype"), url("../fonts/icomoon/icomoon.woff?srf3rx") format("woff"), url("../fonts/icomoon/icomoon.svg?srf3rx#icomoon") format("svg");
+    font-family: 'palanquinregular';
+    src: url('/fonts/palanquin-regular-webfont.woff2') format('woff2'),
+         url('/fonts/palanquin-regular-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-  }
+
+}
   /* =======================================================
   *
   * 	Template Style 
   *
   * ======================================================= */
   body {
-    font-family: "Playfair Display", serif;
+    font-family: "palanquinregular";
     font-weight: 400;
     font-size: 16px;
     line-height: 1.7;
@@ -64,7 +65,7 @@
   
   h1, h2, h3, h4, h5, h6, figure {
     color: #000;
-    font-family: "Montserrat", Arial, sans-serif;
+    font-family: "palanquinregular";
     font-weight: 400;
     margin: 0 0 20px 0;
   }
@@ -99,7 +100,7 @@
     padding: 0;
     text-transform: uppercase;
     font-weight: bold;
-    font-family: "Montserrat", Arial, sans-serif;
+    font-family: "palanquinregular";
   }
   .jj-nav a {
     padding: 5px 10px;
@@ -113,7 +114,7 @@
   .jj-nav .menu-2 li.search {
     float: left;
     width: 83%;
-    font-family: "Playfair Display", serif;
+    font-family: "palanquinregular";
     -webkit-transition: 0.3s;
     -o-transition: 0.3s;
     transition: 0.3s;
@@ -183,7 +184,7 @@
     margin: 0;
     list-style: none;
     display: inline-block;
-    font-family: "Montserrat", Arial, sans-serif;
+    font-family: "palanquinregular";
   }
   .jj-nav ul li a {
     font-size: 13px;
@@ -622,7 +623,7 @@
     font-size: 20px;
     line-height: 1.5;
     margin-bottom: 30px;
-    font-family: "Playfair Display", serif;
+    font-family: "palanquinregular";
   }
   #jj-header .display-tc h2 a,
   #jj-counter .display-tc h2 a,
@@ -677,7 +678,7 @@
     text-transform: uppercase;
     color: rgba(0, 0, 0, 0.5);
     letter-spacing: 1px;
-    font-family: "Montserrat", Arial, sans-serif;
+    font-family: "palanquinregular";
   }
   #jj-counter .feature-center {
     padding: 40px 20px;
@@ -972,7 +973,7 @@
     background: rgba(0, 0, 0, 0.04);
   }
   .jj-tabs .jj-tab-content-wrap .feed > div h3 {
-    font-family: "Playfair Display", serif;
+    font-family: "palanquinregular";
     font-size: 18px;
     display: inline-block;
     padding-right: 20px;
@@ -1025,7 +1026,7 @@
     text-transform: uppercase;
     font-size: 12px;
     letter-spacing: 2px;
-    font-family: "Montserrat", Arial, sans-serif;
+    font-family: "palanquinregular";
   }
   
   #jj-testimonial {
@@ -1241,7 +1242,7 @@
   #jj-offcanvas ul li.search {
     float: left;
     width: 100%;
-    font-family: "Playfair Display", serif;
+    font-family: "palanquinregular";
     -webkit-transition: 0.3s;
     -o-transition: 0.3s;
     transition: 0.3s;
@@ -1491,7 +1492,7 @@
   .btn {
     margin-right: 4px;
     margin-bottom: 4px;
-    font-family: "Montserrat", Arial, sans-serif;
+    font-family: "palanquinregular";
     font-size: 16px;
     font-weight: 400;
     -webkit-border-radius: 2px;
@@ -1848,4 +1849,3 @@
     }
   
   }
-  

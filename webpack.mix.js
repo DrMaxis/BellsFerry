@@ -28,9 +28,9 @@ const mix = require('laravel-mix');
     * 
     */
 
-   mix.js('resources/js/bootstrap.js', 'public/js');
-   mix.js('resources/js/jquery.js', 'public/js');
-   mix.js('resources/js/modernizer.js', 'public/js');
+   mix.js('resources/js/bootstrap.min.js', 'public/js');
+   mix.js('resources/js/jquery.min.js', 'public/js');
+   mix.js('resources/js/modernizer262.js', 'public/js');
    mix.js('resources/js/jj-main.js', 'public/js');
    mix.js('resources/js/counter.js', 'public/js');
    mix.js('resources/js/carousel.js', 'public/js');
