@@ -22,7 +22,7 @@
 -->
 	
 	<!-- Animations -->
-	<link rel="stylesheet" href="css/animate.css">
+	<link rel="stylesheet" href="css/animations.css">
     <!-- Bootstrap  -->
 	<link rel="stylesheet" href="css/bootstrap.css">
 	<!-- Carousel  -->
@@ -114,13 +114,26 @@
 
 -->
 
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
 <!-- Jquery JS -->
-<script src="{{asset('js/jquery.min.js')}}"></script>
+{{-- <script src="{{asset('js/jquery.js')}}"></script> --}}
+
+
+<script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+
+
+
 <!-- Modernizr JS -->
-<script src="{{asset('js/modernizer262.js')}}"></script>
+{{-- <script src="{{asset('js/modernizer262.js')}}"></script> --}}
 <!-- BootStrap JS -->
-<script src="{{asset('js/bootstrap.min.js')}}"></script>
+{{-- <script src="{{asset('js/bootstrap.min.js')}}"></script> --}}
+
+
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 <!--Carousel JS -->
 <script src="{{asset('js/carousel.js')}}"></script>
 <!-- Counter JS -->
