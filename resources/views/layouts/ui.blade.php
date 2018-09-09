@@ -13,26 +13,29 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="JJ International - Delivering Quality and Style around the globe." />
     <meta name="keywords" content="International Shipping, Wholesale, Drop Shipping, Furniture, Patio, JJ, Free Shipping" />
-    
+	
+	
+
    <!-- 
          START STYLE DEPENDANTS
 
 -->
 	
-	<!-- Animate.css -->
+	<!-- Animations -->
 	<link rel="stylesheet" href="css/animate.css">
-	<!-- Icomoon Icon Fonts-->
-	<link rel="stylesheet" href="css/icomoon.css">
-	<!-- Bootstrap  -->
+    <!-- Bootstrap  -->
 	<link rel="stylesheet" href="css/bootstrap.css">
-	<!-- Flexslider  -->
-	<link rel="stylesheet" href="css/flexslider.css">
-	<!-- Owl Carousel  -->
-	<link rel="stylesheet" href="css/owl.carousel.min.css">
-	<link rel="stylesheet" href="css/owl.theme.default.min.css">
+	<!-- Carousel  -->
+	<link rel="stylesheet" href="css/carousel.css">
 	<!-- Main  -->
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/jj-main.css">
 
+
+  <!-- 
+        END STYLE DEPENDANTS
+
+-->
+	
 
     <title>{{config('app.name', 'bpb')}}</title>
 
@@ -107,14 +110,25 @@
 
 <!--
 
-	START JAVASCRIPT DEPENDS
-
+	START JAVASCRIPT DEPENDANTS
 
 -->
 
 
+<!-- Jquery JS -->
+<script src="{{asset('js/jquery.min.js')}}"></script>
 <!-- Modernizr JS -->
-<script src="js/modernizr-2.6.2.min.js"></script>
+<script src="{{asset('js/modernizer262.js')}}"></script>
+<!-- BootStrap JS -->
+<script src="{{asset('js/bootstrap.min.js')}}"></script>
+<!--Carousel JS -->
+<script src="{{asset('js/carousel.js')}}"></script>
+<!-- Counter JS -->
+<script src="{{asset('js/counter.js')}}"></script>
+<!-- Main JS -->
+<script src="{{asset('js/jj-main.js')}}"></script>
+
+
 
 
 <!-- FOR IE9 below -->
@@ -125,6 +139,14 @@
 <![endif]
 
 -->
+
+<!--
+
+	END JAVASCRIPT DEPENDANTS
+
+
+-->
+
 
 
 	</body>
