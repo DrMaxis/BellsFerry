@@ -49,7 +49,7 @@
 							<div id="jj-logo">
 
 								<a href="#">
-									<img src="#">
+									<img src="{{asset('storage/inc/logo-small.png')}}">
 									JJ International
 								</a>
 							</div>

@@ -4,10 +4,15 @@
 
 @section('content')
     
+<section class="jj-hero">
+    <article>
+           
+    </article>
 
-<div class="jj-hero" id="jj-hero">
+<div class="jj-para"  data-velocity="-.3" style="background-position: 50% -120px;">
   
     </div>
+</section>
 
 
 <!--  START PARTNERS   -->
