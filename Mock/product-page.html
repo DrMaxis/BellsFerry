@@ -1,0 +1,739 @@
+<!doctype html>
+<html class="no-js" lang="en-US">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>JJ International-Furniture & Interior Ecommerce HTML Template</title>
+    <meta name="description" content="Default Description">
+    <meta name="keywords" content="E-commerce" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- place favicon.ico in the root directory -->
+    <link rel="shortcut icon" type="image/x-icon" href="img/icon/favicon.png">
+    <!-- mobile menu css -->
+    <link rel="stylesheet" href="css/meanmenu.min.css">
+    <!-- animate css -->
+    <link rel="stylesheet" href="css/animate.css">
+    <!-- nivo slider css -->
+    <link rel="stylesheet" href="css/nivo-slider.css">
+    <!-- owl carousel css -->
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <!-- price slider css -->
+    <link rel="stylesheet" href="css/jquery-ui.min.css">
+    <!-- fontawesome css -->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <!-- icon font pack css -->
+    <link rel="stylesheet" href="css/pe-icon-7-stroke.css">
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- default css  -->
+    <link rel="stylesheet" href="css/default.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="style.css">
+    <!-- responsive css -->
+    <link rel="stylesheet" href="css/responsive.css">
+    <style>
+
+
+        .product-imgs {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-gap: 20px;
+  margin-top: 20px;
+}
+
+.product-imgs .chosen {
+  border: 1px solid red;
+}
+
+.main-img img {
+  opacity: 0;
+  -webkit-transition: opacity .10s ease-in-out;
+  transition: opacity .10s ease-in-out;
+}
+
+.main-img img.active {
+  opacity: 1;
+}
+
+.product-finger {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 1px solid white;
+  min-height: 80px;
+  cursor: pointer;
+}
+
+.product-finger:hover {
+  border: 1px solid yellow;
+}
+
+</style>
+    <!-- modernizr js -->
+    <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+</head>
+
+<body>
+    <!--[if lt IE 8]>
+	<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+	<![endif]-->
+    <!-- Wrapper Start -->
+    <div class="wrapper">
+        <!-- Preloader Start -->
+        <div class="preloader">
+            <div class="loading-center">
+                <div class="loading-center-absolute">
+                    <div class="object object_one"></div>
+                    <div class="object object_two"></div>
+                    <div class="object object_three"></div>
+                </div>
+            </div>
+        </div>
+        <!-- Preloader End -->
+        <!-- Header Area Start -->
+        <header>
+            <div class="container-fluid header-top-area header-sticky">
+                <div class="row">
+                    <!-- Logo Start -->
+                    <div class="col-lg-2 col-md-2 col-sm-6 col-xs-5 full-col pl-0">
+                        <div class="logo">
+                            <a href="index.html"><img src="img/logo/logo.png" alt="brand-image"></a>
+                        </div>
+                    </div>
+                    <!-- Logo End -->
+                    <div class="col-xs-12 visible-xs visible-control">
+                        <ul class="search-form mobile-form">
+                            <li>
+                                <form action="#">
+                                    <input type="text" class="search" name="search" placeholder="Search for products...">
+                                </form>
+                                <i class="pe-7s-search"></i>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- Primary-Menu Start -->
+                    <div class="col-lg-7 col-md-7 col-sm-12  hidden-sm hidden-xs">
+                        <div class="primary-menu">
+                            <nav>
+                                <ul class="primary-menu-list text-center">
+                                    <li><a href="index.html">home</a>
+
+
+                                    </li>
+                                    <li><a href="categorie-page.html">Products</a>
+
+                                    </li>
+                                    <li class="static-menu"><a href="categorie-page.html">Indoor</a>
+
+                                    </li>
+                                    <li class="static-menu"><a href="categorie-page.html">Outdoor</a>
+
+                                    </li>
+                                    <li><a href="about-us.html">about us</a></li>
+                                    <li><a href="contact.html">contact</a></li>
+
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <!-- Primary-Menu End -->
+                    <!-- Header All Shopping Selection Start -->
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-7 full-col pr-0">
+                        <div class="main-selection">
+                            <ul class="selection-list text-right">
+                                <!-- Searcch Box Start -->
+                                <li class="hidden-control"><i class="pe-7s-search"></i>
+                                    <ul class="search-form ht-dropdown">
+                                        <li>
+                                            <form action="#">
+                                                <input type="text" class="search" name="search" placeholder="Search for products...">
+                                            </form>
+                                            <i class="pe-7s-search"></i>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <!-- Search Box End -->
+                                <li><a href="wish-list.html"><i class="pe-7s-like"></i><span>2</span></a></li>
+
+
+                                </li>
+                                <!-- Dropdown Currency Selection Start -->
+
+                                <!-- Dropdown Currency Selection End -->
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Header All Shopping Selection End -->
+                    <!-- Mobile Menu  Start -->
+                    <div class="mobile-menu visible-sm visible-xs">
+                        <nav>
+                            <ul class="primary-menu-list text-center">
+                                <li><a href="index.html">home</a>
+
+
+                                </li>
+                                <li><a href="categorie-page.html">Products</a>
+
+                                </li>
+                                <li class="static-menu"><a href="categorie-page.html">Indoor</a>
+
+                                </li>
+                                <li class="static-menu"><a href="product-page.html">Outdoor</a>
+
+                                </li>
+                                <li><a href="about-us.html">about us</a></li>
+                                <li><a href="contact.html">contact</a></li>
+
+                            </ul>
+                        </nav>
+                    </div>
+                    <!-- Mobile Menu  End -->
+                </div>
+            </div>
+        </header>
+        <!-- Header Area End -->
+        <!-- Page Breadcrumb Start -->
+        <div class="main-breadcrumb mb-100">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="breadcrumb-content text-center ptb-70">
+                            <h1>DETAIL PRODUCT</h1>
+                            <ul class="breadcrumb-list breadcrumb">
+                                <li><a href="#">home</a></li>
+                                <li><a href="#">product details</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Page Breadcrumb End -->
+        <!-- Product Thumbnail Start -->
+        <div class="main-product-thumbnail pb-100">
+            <div class="container">
+                <div class="row">
+
+
+
+
+                    <div class="col-sm-6">
+                        <div class="main-img">
+                            <img src="img/new-products/F8107-2.JPG" data-zoom-image="img/new-products/F8107-2.JPG"
+                                class="active" alt="product-image" id="primaryImg" />
+                        </div>
+                        <div class="product-imgs mt-20">
+
+
+                            <div class="product-finger chosen">
+
+                                <img src="img/new-products/2_1.jpg" data-zoom-image="img/new-products/1_2.jpg" alt="product-image" />
+                            </div>
+
+                            <div class="product-finger">
+
+                                <img src="img/new-products/F8107-2.JPG" data-zoom-image="img/new-products/F8107-2.JPG"
+                                    class="active" alt="product-image" id="primaryImg" />
+                            </div>
+
+                            <div class="product-finger chosen">
+
+                                <img src="img/new-products/2_1.jpg" data-zoom-image="img/new-products/1_2.jpg" alt="product-image" />
+                            </div>
+
+
+                            <div class="product-finger">
+
+                                <img src="img/new-products/F8107-2.JPG" data-zoom-image="img/new-products/F8107-2.JPG"
+                                    class="active" alt="product-image" id="primaryImg" />
+                            </div>
+
+                            <div class="product-finger chosen">
+
+                                <img src="img/new-products/2_1.jpg" data-zoom-image="img/new-products/1_2.jpg" alt="product-image" />
+                            </div>
+
+
+                        </div>
+                    </div>
+
+
+                    <!--      <div class="col-sm-6">
+                        <img id="big-img" src="img/new-products/F8107-2.JPG" data-zoom-image="img/new-products/F8107-2.JPG"
+                            alt="product-image" />
+
+                        <div id="small-img" class="mt-20">
+
+                            <div class="thumb-menu owl-carousel">
+                                <a href="#" data-image="img/new-products/1_2.jpg" data-zoom-image="img/new-products/1_2.jpg">
+                                    <img src="img/new-products/F8107-2.JPG" alt="product-image" />
+                                </a>
+
+                                <a href="#" data-image="img/new-products/2_1.jpg" data-zoom-image="img/new-products/2_1.jpg">
+                                    <img src="img/new-products/2_1.jpg" alt="product-image" />
+                                </a>
+
+                                <a href="#" data-image="img/new-products/2_2.jpg" data-zoom-image="img/new-products/2_2.jpg">
+                                    <img src="img/new-products/F8107-2.JPG" alt="product-image" />
+                                </a>
+
+                                <a href="#" data-image="img/new-products/3_1.jpg" data-zoom-image="img/new-products/3_1.jpg">
+                                    <img src="img/new-products/3_1.jpg" alt="product-image" />
+                                </a>
+
+                                <a href="#" data-image="img/new-products/2_1.jpg" data-zoom-image="img/new-products/2_1.jpg">
+                                    <img src="img/new-products/F8107-2.JPG" alt="product-image" />
+                                </a>
+                            </div>
+                        </div>
+                    </div> -->
+                    <!-- Thumbnail Description Start -->
+                    <div class="col-sm-6">
+                        <div class="payment-method">
+                            <div id="sellers" class="payment-accordion">
+                                <h1>Where To Purchase</h1>
+                                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading" role="tab" id="headingOne">
+                                            <h4 class="panel-title">
+                                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne"
+                                                    aria-expanded="false" aria-controls="collapseOne" class="collapsed">
+                                                    Direct Bank Transfer
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseOne" class="panel-collapse collapse" role="tabpanel"
+                                            aria-labelledby="headingOne" aria-expanded="false" style="height: 0px;">
+                                            <div class="panel-body">
+                                                <p>Make your payment directly into our bank account. Please use your
+                                                    Order ID as the payment reference. Your order won’t be shipped
+                                                    until the funds have cleared in our account.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading" role="tab" id="headingTwo">
+                                            <h4 class="panel-title">
+                                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                                                    href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                    Cheque Payment
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel"
+                                            aria-labelledby="headingTwo" aria-expanded="false">
+                                            <div class="panel-body">
+                                                <p>Please send your cheque to Store Name, Store Street, Store Town,
+                                                    Store State / County, Store Postcode.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading" role="tab" id="headingThree">
+                                            <h4 class="panel-title">
+                                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                                                    href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                                    PayPal
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel"
+                                            aria-labelledby="headingThree" aria-expanded="false">
+                                            <div class="panel-body">
+                                                <p>Pay via PayPal; you can pay with your credit card if you don’t have
+                                                    a PayPal account.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Thumbnail Description End -->
+                </div>
+                <!-- Row End -->
+            </div>
+            <!-- Container End -->
+        </div>
+        <!-- Product Thumbnail End -->
+        <!-- Product Thumbnail Description Start -->
+        <div class="thumnail-desc pb-50">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <ul class="main-thumb-desc text-center list-inline">
+                            <li class="active"><a data-toggle="tab" href="#detail">Details</a></li>
+                        </ul>
+                        <!-- Product Thumbnail Tab Content Start -->
+
+
+                        <div id="detail" class="tab-pane fade in active pb-40">
+                            <h3>information</h3>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Description</th>
+                                            <th>PKG</th>
+                                            <th>Dimension</th>
+                                            <th>Cubic FT.</th>
+                                            <th>Weight</th>
+                                            <th>CBM</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Product Description</td>
+                                            <td>1</td>
+                                            <td>12"L x 18"W x 12"H</td>
+                                            <td>31</td>
+                                            <td>55</td>
+                                            <td>0.88</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>Product Description</td>
+                                            <td>1</td>
+                                            <td>12"L x 18"W x 12"H</td>
+                                            <td>31</td>
+                                            <td>55</td>
+                                            <td>0.88</td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product Thumbnail Tab Content End -->
+                </div>
+            </div>
+            <!-- Row End -->
+        </div>
+        <!-- Container End -->
+    </div>
+    <!-- Product Thumbnail Description End -->
+
+    <!-- Footer Start -->
+    <footer>
+        <!-- Footer Middle Start -->
+        <div class="footer-middle">
+            <div class="container">
+                <div class="container-footer ptb-100">
+                    <div class="row">
+                        <!-- Single Footer Start -->
+                        <div class="single-footer col-md-3 col-sm-6">
+                            <div class="footer-logo">
+                                <a href="#"><img class="img" src="img/logo/logo.png" alt="logo-img"></a>
+                            </div>
+                            <div class="footer-content">
+                                <p>About JJ International, Inc</p>
+                                <h5 class="contact-info mtb-10">contact info:</h5>
+                                <ul class="footer-list first-content">
+                                    <li><i class="pe-7s-map-marker"></i>Address will be here</li>
+                                    <li><i class="pe-7s-mail"></i>your-email@example.com</li>
+                                    <li><i class="pe-7s-call"></i>+00 123 45678</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Single Footer Start -->
+                        <!-- Single Footer Start -->
+                        <div class="single-footer col-md-3 col-sm-6">
+                            <h4 class="footer-title">information</h4>
+                            <div class="footer-content">
+                                <ul class="footer-list">
+                                    <li><a href="#">about us</a></li>
+                                    <li><a href="#">delivery information</a></li>
+                                    <li><a href="#">privacy policy</a></li>
+                                    <li><a href="#">terms & conditions</a></li>
+                                    <li><a href="#">warranty</a></li>
+                                    <li><a href="#">FAQ</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Single Footer Start -->
+                        <!-- Single Footer Start -->
+                        <div class="single-footer col-md-3 col-sm-6">
+                            <h4 class="footer-title">extras</h4>
+                            <div class="footer-content">
+                                <ul class="footer-list">
+                                    <li><a href="#">brands</a></li>
+                                    <li><a href="#">gift certificates</a></li>
+                                    <li><a href="#">Affiliate</a></li>
+                                    <li><a href="#">Specials</a></li>
+                                    <li><a href="#">contact us</a></li>
+                                    <li><a href="#">returns</a></li>
+                                    <li><a href="#">Map</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Single Footer Start -->
+                        <!-- Single Footer Start -->
+                        <div class="single-footer col-md-3 col-sm-6">
+                            <h4 class="footer-title">NEWSLETTER</h4>
+                            <div class="footer-content subscribe-form">
+                                <p class="mb-25">Subscribe to our newsletter and get 10% off your first purchase</p>
+                                <div class="subscribe-box">
+                                    <form action="#">
+                                        <input type="text" name="subscribe_email" id="subscribe_email" placeholder="Enter you email address here...">
+                                        <input type="submit" class="submit" value="subscribe">
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Single Footer Start -->
+                    </div>
+                    <!-- Row End -->
+                </div>
+                <!-- Container Footer End -->
+            </div>
+            <!-- Container End -->
+        </div>
+        <!-- Footer Middle End -->
+        <!-- Footer Bottom Start -->
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="container-footer ptb-30">
+                    <div class="row">
+                        <div class="col-sm-7">
+                            <p class="text-left copyright-text">Copyright © <a target="_blank" href="#">JJ
+                                    International</a> All Rights Reserved.</p>
+                        </div>
+                        <div class="col-sm-5">
+                            <div class="socila-footer">
+                                <ul class="social-footer-list list-inline text-right">
+                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Row End -->
+                </div>
+                <!-- Container Footer End -->
+            </div>
+            <!-- Container End -->
+        </div>
+        <!-- Footer Bottom End -->
+    </footer>
+    <!-- Footer End -->
+    <!-- Quick View Content Start -->
+    <div class="modal modal-box fade" id="myModal" role="dialog">
+        <!-- Modal Dialog Box Start -->
+        <div class="modal-dialog max-width">
+            <!-- Modal content Start -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <!-- Modal Body Start -->
+                <div class="modal-body">
+                    <div class="quiick-view-details">
+                        <!-- Product Thumbnail Start -->
+                        <div class="main-product-thumbnail">
+                            <div class="container">
+                                <div class="row">
+                                    <!-- Main Thumbnail Image Start -->
+                                    <div class="col-md-5 col-sm-6">
+                                        <!-- Thumbnail Large Image start -->
+                                        <div class="tab-content">
+                                            <div id="thumbs1" class="tab-pane fade in active">
+                                                <img src="img/new-products/1_1.jpg" alt="product-thumbnail" />
+                                            </div>
+                                            <div id="thumbs2" class="tab-pane fade">
+                                                <img src="img/new-products/1_2.jpg" alt="product-thumbnail" />
+                                            </div>
+                                            <div id="thumbs3" class="tab-pane fade">
+                                                <img src="img/new-products/2_1.jpg" alt="product-thumbnail" />
+                                            </div>
+                                            <div id="thumbs4" class="tab-pane fade">
+                                                <img src="img/new-products/2_2.jpg" alt="product-thumbnail" />
+                                            </div>
+                                            <div id="thumbs5" class="tab-pane fade">
+                                                <img src="img/new-products/3_1.jpg" alt="product-thumbnail" />
+                                            </div>
+                                            <div id="thumbs6" class="tab-pane fade">
+                                                <img src="img/new-products/3_2.jpg" alt="product-thumbnail" />
+                                            </div>
+                                        </div>
+                                        <!-- Thumbnail Large Image End -->
+
+                                        <!-- Thumbnail Image End -->
+                                        <div class="product-thumbnail mt-15 mb-20">
+                                            <div class="thumb-menu owl-carousel">
+                                                <div class="active">
+                                                    <a data-toggle="tab" href="#thumbs1"> <img src="img/new-products/1_1.jpg"
+                                                            alt="product-thumbnail"></a>
+                                                </div>
+                                                <div>
+                                                    <a data-toggle="tab" href="#thumbs2"> <img src="img/new-products/1_2.jpg"
+                                                            alt="product-thumbnail"></a>
+                                                </div>
+                                                <div>
+                                                    <a data-toggle="tab" href="#thumbs3"> <img src="img/new-products/2_1.jpg"
+                                                            alt="product-thumbnail"></a>
+                                                </div>
+                                                <div>
+                                                    <a data-toggle="tab" href="#thumbs4"> <img src="img/new-products/2_2.jpg"
+                                                            alt="product-thumbnail"></a>
+                                                </div>
+                                                <div>
+                                                    <a data-toggle="tab" href="#thumbs5"> <img src="img/new-products/3_1.jpg"
+                                                            alt="product-thumbnail"></a>
+                                                </div>
+                                                <div>
+                                                    <a data-toggle="tab" href="#thumbs6"> <img src="img/new-products/3_2.jpg"
+                                                            alt="product-thumbnail"></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Thumbnail image end -->
+                                    </div>
+                                    <!-- Main Thumbnail Image End -->
+                                    <!-- Thumbnail Description Start -->
+                                    <div class="col-md-7 col-sm-6">
+                                        <div class="thubnail-desc fix">
+                                            <h2 class="product-header">Sheepskin Pillow2</h2>
+                                            <!-- Product Rating Start -->
+                                            <div class="rating-summary fix mtb-25">
+                                                <div class="rating f-left mr-10">
+                                                    <i class="fa fa-star-o"></i>
+                                                    <i class="fa fa-star-o"></i>
+                                                    <i class="fa fa-star-o"></i>
+                                                    <i class="fa fa-star-o"></i>
+                                                </div>
+                                                <div class="rating-feedback f-left">
+                                                    <a href="#">0 reviews</a> /
+                                                    <a href="#">Write a review</a>
+                                                </div>
+                                            </div>
+                                            <!-- Product Rating End -->
+                                            <!-- Product Price Start -->
+                                            <div class="pro-price mb-15">
+                                                <ul class="pro-price-list">
+                                                    <li class="price">$241.99</li>
+                                                    <li class="tax">Ex Tax: $199.99</li>
+                                                </ul>
+                                            </div>
+                                            <!-- Product Price End -->
+                                            <!-- Product Price Description Start -->
+                                            <div class="product-price-desc mb-10">
+                                                <ul class="pro-desc-list">
+                                                    <li>Product Code: <span>SAMI</span></li>
+                                                    <li>Reward Points: <span>1000</span></li>
+                                                    <li>Availability: <span>in Stock</span></li>
+                                                </ul>
+                                            </div>
+                                            <!-- Product Price Description End -->
+                                            <!-- Product Box Quantity Start -->
+                                            <div class="box-quantity mb-30">
+                                                <div class="quantity-item">
+                                                    <label>Qty: </label>
+                                                    <div class="cart-plus-minus">
+                                                        <input class="cart-plus-minus-box" type="text" name="qtybutton"
+                                                            value="0">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Product Box Quantity End -->
+                                            <!-- Product Button Actions Start -->
+                                            <div class="product-button-actions">
+                                                <button class="add-to-cart">add to cart</button>
+                                                <button data-toggle="tooltip" title="Add to Wishlist" class="same-btn mr-15"><i
+                                                        class="pe-7s-like"></i></button>
+                                                <button data-toggle="tooltip" title="Compare this Product" class="same-btn"><i
+                                                        class="pe-7s-repeat"></i></button>
+                                            </div>
+                                            <!-- Product Button Actions End -->
+                                        </div>
+                                    </div>
+                                    <!-- Thumbnail Description End -->
+                                </div>
+                                <!-- Row End -->
+                            </div>
+                            <!-- Container End -->
+                        </div>
+                        <!-- Product Thumbnail End -->
+                    </div>
+                    <!-- Quick View Details End -->
+                </div>
+                <!-- Modal Body End -->
+            </div>
+            <!-- Modal Content End -->
+        </div>
+        <!-- Modal Dialog Box End -->
+    </div>
+    <!-- Quick View Content End -->
+    </div>
+    <!-- Wrapper End -->
+    <!-- jquery 3.12.4 -->
+    <script src="js/vendor/jquery-1.12.4.min.js"></script>
+    <!-- mobile menu js  -->
+    <script src="js/jquery.meanmenu.min.js"></script>
+    <!-- scroll-up js -->
+    <script src="js/jquery.scrollUp.js"></script>
+    <!-- owl-carousel js -->
+    <script src="js/owl.carousel.min.js"></script>
+    <!-- wow js -->
+    <script src="js/wow.min.js"></script>
+    <!-- price slider js -->
+    <script src="js/jquery-ui.min.js"></script>
+    <!-- elevateZoom js -->
+    <script src="js/jquery.elevateZoom-3.0.8.min.js"></script>
+    <!-- nivo slider js -->
+    <script src="js/jquery.nivo.slider.js"></script>
+    <!-- bootstrap -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- plugins -->
+    <script src="js/plugins.js"></script>
+    <!-- main js -->
+    <script src="js/main.js"></script>
+
+    <script>
+        $(window).scroll(function () {
+
+            if (parseInt($('#sellers').css("margin-top")) < 350) {
+                $("#sellers").stop().animate({
+                    "marginTop": ($(window).scrollTop()) + "px",
+                    "marginLeft": ($(window).scrollLeft()) + "px"
+                }, "slow");
+            } 
+           
+        
+
+        });
+    </script>
+
+
+
+    <script>
+        (function () {
+            const bigImg = document.querySelector('#primaryImg');
+            const images = document.querySelectorAll('.product-finger');
+
+            images.forEach((element) => element.addEventListener('click', thumbnailClick));
+
+            function thumbnailClick(e) {
+                bigImg.classList.remove('active');
+                bigImg.addEventListener('transitionend', () => {
+                    bigImg.src = this.querySelector('img').src;
+                    bigImg.classList.add('active');
+                })
+
+                images.forEach((element) => element.classList.remove('chosen'));
+                this.classList.add('chosen');
+            }
+
+        })();
+    </script>
+</body>
+
+</html>
