@@ -21,7 +21,7 @@
                         <div class="single-product">
                             {{-- Product Image Start --}}
                             <div class="pro-img">
-                                <a href="product-page.html">
+                                <a href="{{route('single-product',$product->slug)}}">
                                     <img class="primary-img" src="{{productImage($product->image)}}" alt="single-product">
                                     @if($product->images) 
                                     @foreach( collect(json_decode($product->images))-> take(1) as $image) 
@@ -35,7 +35,7 @@
                             {{-- Product Image End --}}
                             {{-- Product Content Start --}}
                             <div class="pro-content text-center">
-                                <h4><a href="product-page.html">{{$product->name}}</a></h4>
+                                <h4><a href="{{route('single-product',$product->slug)}}">{{$product->name}}</a></h4>
 
                             </div>
                             {{-- Product Content End --}}

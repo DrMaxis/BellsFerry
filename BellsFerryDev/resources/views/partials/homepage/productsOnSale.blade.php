@@ -16,7 +16,7 @@
                 {{-- Single Banner Start --}}
                 <div class="col-sm-6">
                     <div class="single-banner">
-                        <a href="product-page.html"><img src="{{$product->image}}" alt="product-banner"></a>
+                        <a href="{{route('single-product', $product->slug)}}"><img src="{{$product->image}}" alt="product-banner"></a>
                     </div>
                 </div>
                 {{-- Single Banner End --}}
