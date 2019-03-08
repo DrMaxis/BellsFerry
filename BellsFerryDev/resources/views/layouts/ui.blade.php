@@ -45,6 +45,8 @@
     <script src="{{asset('js/plugins.js')}}"></script>
     <!-- main js -->
     <script src="{{asset('js/app.js')}}"></script>
+
+    @yield('xjs')
 </body>
 
 </html>

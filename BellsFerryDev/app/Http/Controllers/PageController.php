@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\AboutUs;
 use App\Product;
 use Illuminate\Http\Request;
 
@@ -22,13 +23,16 @@ class PageController extends Controller
     }
 
     public function aboutUs() {
+        $aboutUs = AboutUs::where('id', '=', 1)->first();
 
-        return view('aboutus');
+        return view('aboutus')->with([
+            'aboutUs' => $aboutUs,
+        ]);
 
     }
     public function contactUs() {
 
-        return view('contactus');
+        return view('contactUs');
 
     }
 
