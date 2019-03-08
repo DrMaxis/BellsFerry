@@ -94,3 +94,7 @@ Route::get('/products/{product}', 'ProductsController@show')->name('single-produ
 // Search for A Product
 Route::get('/search', 'ProductsController@search')->name('search');
 */
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});

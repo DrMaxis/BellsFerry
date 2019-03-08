@@ -32,7 +32,7 @@
 
                                                     <div class="single-blog">
                                                         <div class="blog-img">
-                                                            <a href="{{route('single-product', $product->slug)}}"><img src="img/new-products/F8111-BRO NEW 2017.jpg" alt="blog-image"></a>
+                                                            <a href="{{route('single-product', $product->slug)}}"><img src="{{productImage($product->image)}}" alt="blog-image"></a>
                                                         </div>
                                                         <div class="blog-content">
                                                             <div class="blog-content-upper">

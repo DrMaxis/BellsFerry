@@ -17,22 +17,13 @@
             
                                     <img src="{{productImage($product->image)}}" alt="product-image" />
                                 </div>
-    
+                                @if($product->images) @foreach(json_decode($product->images, true) as $image)
                                 <div class="product-finger">
             
-                                    <img src="{{productImage($product->image)}}" alt="product-image" />
-                                    
+                                    <img src="{{productImage($image)}}" alt="product-image" />
                                 </div>
-                                <div class="product-finger">
-            
-                                        <img src="{{productImage($product->image)}}" alt="product-image" />
-                                        
-                                    </div>
-                                    <div class="product-finger">
-            
-                                            <img src="{{productImage($product->image)}}" alt="product-image" />
-                                            
-                                        </div>
+                                @endforeach @endif
+                                
                                
                             </div>
                     </div>

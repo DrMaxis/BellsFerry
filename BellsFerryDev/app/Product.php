@@ -11,4 +11,10 @@ class Product extends Model
  public function categories() {
     return $this->belongsToMany('App\Category');
 }
+
+public function variants() {
+    return $this->belongsToMany('App\Variant', 'variant_product');
+}
+
+
 }
