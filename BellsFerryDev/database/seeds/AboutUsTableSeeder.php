@@ -13,8 +13,8 @@ class AboutUsTableSeeder extends Seeder
     public function run()
     {
         AboutUs::create([
-            'title' => 'XenColor',
-            'slug' => 'xen-color',
+            'title' => 'JJ International',
+            'slug' => 'jjinternational',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
         ]);
     }
