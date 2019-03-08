@@ -1495,6 +1495,38 @@ ul.pull-left.home-4-search i {
   border-color: #1a1a1a;
 }
 
+.product-imgs {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-gap: 20px;
+  margin-top: 20px;
+}
+
+.product-imgs .chosen {
+  border: 1px solid red;
+}
+
+.main-img img {
+  opacity: 0;
+  transition: opacity 0.1s ease-in-out;
+}
+
+.main-img img.active {
+  opacity: 1;
+}
+
+.product-finger {
+  display: flex;
+  align-items: center;
+  border: 1px solid white;
+  min-height: 80px;
+  cursor: pointer;
+}
+
+.product-finger:hover {
+  border: 1px solid yellow;
+}
+
 .social-shared > ul > li {
   display: inline-block;
 }

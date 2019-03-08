@@ -8,7 +8,7 @@
                     {{-- Single Footer Start --}}
                     <div class="single-footer col-md-11 col-sm-11 text-center">
                         <div class="footer-logo">
-                            <a href="#"><img class="img" src="img/logo/logo.png" alt="logo-img"></a>
+                            <a href="#"><img class="img" src="{{asset('assets/imgs/logos/logo.png')}}" alt="logo-img"></a>
                         </div>
                         <div class="footer-content">
                             <p>About JJ International, Inc</p>

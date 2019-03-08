@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Product;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -11,7 +12,12 @@ class PageController extends Controller
 
     public function index() {
 
-        return view('homepage');
+        $productsOnSale = Product::where('featured', '=', 1)->get();
+        $newProducts = Product::where('new', '=', 1)->get();
+        return view('homepage')->with([
+            'newProducts' => $newProducts,
+            'productsOnSale' => $productsOnSale,
+        ]);
 
     }
 
