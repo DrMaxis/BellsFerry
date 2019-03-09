@@ -40,8 +40,12 @@ class ProductsController extends Controller
 
         $product = Product::where('slug', $slug)->firstOrFail();
 
+        $variantsForProduct = $product->variants()->get();
+
+        
+
         return view('singleProduct')->with([
-            
+            'variantsForProduct' => $variantsForProduct,
             'product' => $product,
         ]);
     }

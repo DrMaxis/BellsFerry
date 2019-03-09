@@ -30,6 +30,7 @@
                                     @endif
 
                                 </a>
+                               
                                 <span class="sticker-new">new</span>
                             </div>
                             {{-- Product Image End --}}

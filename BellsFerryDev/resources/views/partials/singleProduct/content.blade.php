@@ -17,12 +17,33 @@
             
                                     <img src="{{productImage($product->image)}}" alt="product-image" />
                                 </div>
-                                @if($product->images) @foreach(json_decode($product->images, true) as $image)
+                                @if(count($variantsForProduct) > 0 ) 
+
+
+                                @foreach($variantsForProduct as $variant)
+                                @if($variant->image) 
+                               {{--  {{dd($variant->image)}} --}}
+                               
+                                <div class="product-finger">
+            
+                                        <img src="{{productImage($variant->image)}}" alt="product-image" />
+                                    </div>
+                                    
+                                    @endif
+                                    @endforeach
+                                    
+                                    
+                                    @elseif ($product->images)
+                                     @foreach(json_decode($product->images, true) as $image)
                                 <div class="product-finger">
             
                                     <img src="{{productImage($image)}}" alt="product-image" />
                                 </div>
-                                @endforeach @endif
+                                    @endforeach
+                                @endif
+                               
+                            
+                                
                                 
                                
                             </div>

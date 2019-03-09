@@ -33,7 +33,25 @@
 
                 <div class="panel panel-bordered" style="padding-bottom:5px;">
                        
+              <!-- Quick Details -->
+              <div class="panel-heading" style="border-bottom:0;">
+                    <h3 class="panel-title">Quick Details</h3>
+                </div>
 
+                <div class="panel-body" style="padding-top:0;">
+                    <ul>
+                            <li style="margin-bottom: 10px">
+                                    <div>Customer: {{ $email->name }}</div>
+                                    <div>Customer Email: {{ $email->email }}</div>
+                                    <div>Email Date: {{ $email->created_at }}</div>
+                                    
+                            </li>
+                       
+                    </ul>
+                <a class="btn btn-info" href="mailto:{{$email->email}}">Respond</a>
+
+                </div>
+                    <!-- Quick Details End-->
                     <!-- form start -->
                     @foreach($dataType->readRows as $row)
                         <div class="panel-heading" style="border-bottom:0;">
