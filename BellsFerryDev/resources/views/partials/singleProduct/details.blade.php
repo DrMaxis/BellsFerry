@@ -18,42 +18,21 @@
                                         <tr>
                                             <th>Merchant</th>
                                             <th>Availability </th>
-                                            <th>Shipping</th>
-                                            <th>Price</th>
+                                            
                                         </tr>
                                         <tr>
+
+                                                @foreach($merchantsForProduct as $merchant)
                                         <td data-th="Product Merchant">
                                             <a href="https://amazon.com" target="_blank"> 
-                                                     <img class="merchant-logo" src="http://www.pngall.com/wp-content/uploads/2016/03/Amazon-Logo-Transparent-PNG.png">
+                                                     <img class="merchant-logo" src="{{contentImage($merchant->icon)}}">{{$merchant->name}}
                                             </a>
                                         </td>
-                                            <td data-th="Product Availability">In Stock</td>
-                                            <td data-th="Product Shipping">Free</td>
-                                            <td data-th="Product Price">$169.99</td>
+                                        @endforeach
+                                            <td data-th="Product Availability"></td>
+                                            
                                         </tr>
-                                        <tr>
-                                        <td data-th="Product Merchant">
-                                            <a href="https://wayfair.com" target="_blank"> 
-                                                    <img class="merchant-logo" src="http://pluspng.com/img-png/wayfair-logo-vector-png--400.png">
-                                            </a>
                                         
-                                        </td>
-                                            <td data-th="Product Availability">Low Stock</td>
-                                            <td data-th="Product Shipping">Click the logo for details</td>
-                                            <td data-th="Product Price">$129.99</td>
-                                        </tr>
-                                        <tr>
-                                            <td data-th="Product Merchant">
-                                                <a href="https://qvc.com" target="_blank">
-                                                    <img class="merchant-logo" src="https://qvc.scene7.com/is/image/QVC/qvc-logo-rebrand?fmt=png-alpha">
-                                                </a>
-                                            </td>
-                                            <td class="msoldout" data-th="Product Availability">Sold Out </td>
-                                            <td class="mfreeshipping" data-th="Product Shipping">Free</td>
-                                            <td class="mprice" data-th="Product Price">$139.99 <span class="mpromo">with
-                                                    Promo: JJSPRING </span> </td>
-                                        </tr>
-
                                     </tbody>
                                 </table>
                             </div>

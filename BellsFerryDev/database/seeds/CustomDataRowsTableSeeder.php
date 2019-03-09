@@ -342,6 +342,21 @@ class CustomDataRowsTableSeeder extends Seeder
                 'order' => 2,
             ])->save();
         }
+        $dataRow = $this->dataRow($variantDataType, 'model');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type' => 'text',
+                'display_name' => 'Model',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '',
+                'order' => 3,
+            ])->save();
+        }
         $dataRow = $this->dataRow($variantDataType, 'slug');
         if (!$dataRow->exists) {
             $dataRow->fill([
@@ -354,31 +369,14 @@ class CustomDataRowsTableSeeder extends Seeder
                 'add' => 1,
                 'delete' => 1,
                 'details' => '',
-                'order' => 3,
-            ])->save();
-        }
-
-        $dataRow = $this->dataRow($variantDataType, 'price');
-        if (!$dataRow->exists) {
-            $dataRow->fill([
-                'type' => 'number',
-                'display_name' => 'Price',
-                'required' => 1,
-                'browse' => 1,
-                'read' => 1,
-                'edit' => 1,
-                'add' => 1,
-                'delete' => 1,
-                'details' => '',
                 'order' => 4,
             ])->save();
         }
-
-        $dataRow = $this->dataRow($variantDataType, 'quantity');
+        $dataRow = $this->dataRow($variantDataType, 'sku');
         if (!$dataRow->exists) {
             $dataRow->fill([
-                'type' => 'number',
-                'display_name' => 'Quantity',
+                'type' => 'text',
+                'display_name' => 'SKU',
                 'required' => 1,
                 'browse' => 1,
                 'read' => 1,
@@ -389,7 +387,103 @@ class CustomDataRowsTableSeeder extends Seeder
                 'order' => 5,
             ])->save();
         }
+        $dataRow = $this->dataRow($variantDataType, 'color');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type' => 'text',
+                'display_name' => 'Color',
+                'required' => 0,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"on":"Yes","off":"No"}',
+                'order' => 6,
+            ])->save();
+        }
 
+        $dataRow = $this->dataRow($variantDataType, 'new');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type' => 'text',
+                'display_name' => 'New',
+                'required' => 0,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"on":"Yes","off":"No"}',
+                'order' => 7,
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($variantDataType, 'featured');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type' => 'text',
+                'display_name' => 'Featured',
+                'required' => 0,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"on":"Yes","off":"No"}',
+                'order' => 8,
+            ])->save();
+        }
+        $dataRow = $this->dataRow($variantDataType, 'image');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type' => 'image',
+                'display_name' => 'Image',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '{"resize":{"width":"1000","height":null},"quality":"70%","upsize":false,"thumbnails":[{"name":"medium","scale":"50%"},{"name":"small","scale":"25%"},{"name":"cropped","crop":{"width":"300","height":"250"}}]}',
+                'order' => 9,
+            ])->save();
+        }
+
+
+        $dataRow = $this->dataRow($variantDataType, 'images');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type' => 'multiple_images',
+                'display_name' => 'Images',
+                'required' => 0,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '',
+                'order' => 10,
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($variantDataType, 'showcase_images');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type' => 'multiple_images',
+                'display_name' => 'Showcase Images',
+                'required' => 0,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '',
+                'order' => 11,
+            ])->save();
+        }
+
+    
 
         $dataRow = $this->dataRow($variantDataType, 'created_at');
         if (!$dataRow->exists) {
@@ -667,6 +761,62 @@ class CustomDataRowsTableSeeder extends Seeder
                 'order' => 6,
             ])->save();
         }
+
+
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | Merchants
+        |--------------------------------------------------------------------------
+         */
+        $merchantDataType = DataType::where('slug', 'merchants')->firstOrFail();
+        $dataRow = $this->dataRow($merchantDataType, 'id');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type' => 'hidden',
+                'display_name' => 'Id',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '',
+                'order' => 1,
+            ])->save();
+        }
+        $dataRow = $this->dataRow($merchantDataType, 'name');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type' => 'text',
+                'display_name' => 'Company Name',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '',
+                'order' => 2,
+            ])->save();
+        }
+        $dataRow = $this->dataRow($merchantDataType, 'icon');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type' => 'image',
+                'display_name' => 'Company Logo',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 0,
+                'details' => '{"resize":{"width":"1000","height":null},"quality":"70%","upsize":false,"thumbnails":[{"name":"medium","scale":"50%"},{"name":"small","scale":"25%"},{"name":"cropped","crop":{"width":"300","height":"250"}}]}',
+                'order' => 3,
+            ])->save();
+        }
+        
         
        
     }

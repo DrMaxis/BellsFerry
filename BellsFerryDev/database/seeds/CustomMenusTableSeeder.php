@@ -23,9 +23,7 @@ class CustomMenusTableSeeder extends Seeder
         Menu::firstOrCreate([
             'name' => 'foot-social',
         ]);
-        Menu::firstOrCreate([
-            'name' => 'foot-infop',
-        ]);
+       
 
     }
 }

@@ -4,6 +4,7 @@ use App\Product;
 use App\Category;
 use App\AboutUs;
 use App\Variant;
+use App\Merchant;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -19,5 +20,6 @@ class DatabaseSeeder extends Seeder
         $this->call(ProductsTableSeeder::class);
         $this->call(AboutUsTableSeeder::class);
         $this->call(VariantTableSeeder::class);
+        $this->call(MerchantTableSeeder::class);
     }
 }

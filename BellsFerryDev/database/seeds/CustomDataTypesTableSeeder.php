@@ -60,6 +60,23 @@ class CustomDataTypesTableSeeder extends Seeder
             ])->save();
         }
 
+        $dataType = $this->dataType('slug', 'merchants');
+        if (!$dataType->exists) {
+            $dataType->fill([
+                'name' => 'merchants',
+                'slug' => 'merchants',
+                'display_name_singular' => 'Merchant',
+                'display_name_plural' => 'Merchants',
+                'icon' => 'voyager-lab',
+                'model_name' => 'App\Merchant',
+                'controller' => '',
+                'generate_permissions' => 1,
+                'server_side' => 1,
+                'description' => '',
+                'details' => '{"order_column":null,"order_display_column":null}',
+            ])->save();
+        }
+
 
        
 

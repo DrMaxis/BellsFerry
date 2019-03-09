@@ -16,5 +16,7 @@ public function variants() {
     return $this->belongsToMany('App\Variant', 'variant_product');
 }
 
-
+public function merchants() {
+    return $this->belongsToMany('App\Merchant');
+}
 }

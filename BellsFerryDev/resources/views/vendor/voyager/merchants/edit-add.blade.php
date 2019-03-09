@@ -77,39 +77,11 @@
                                     </div>
                                 @endif
                             @endforeach
-                              <div class="form-group">
-                                    <label>Categories</label>
-    
-                                    <ul style="list-style-type: none; padding-left: 0">
-                                    @foreach ($allCategories as $category)
-                                        <li><label><input value="{{ $category->id }}" type="checkbox" name="category[]" style="margin-right: 5px;" {{ $categoriesForProduct->contains($category) ? 'checked' : '' }}>{{ $category->name }}</label></li>
-                                    @endforeach
-                                    </ul>
-                                </div> <!-- end form-group --> 
+                             
 
 
-                                <div class="form-group">
-                                        <label>Variants</label>
-        
-                                        <ul style="list-style-type: none; padding-left: 0">
-                                        @foreach ($variants as $variant)
-                                            <li><label><input value="{{ $variant->id }}" type="checkbox" name="variant[]" style="margin-right: 5px;" {{ $variantsForProduct->contains($variant) ? 'checked' : '' }}>{{ $variant->name }}</label></li>
-                                        @endforeach
-                                        </ul>
-                                    </div> <!-- end form-group --> 
-                                    <div class="form-group">
-                                            <label>Merchants</label>
-            
-                                            <ul style="list-style-type: none; padding-left: 0">
-                                            @foreach ($merchants as $merchant)
-                                                <li>
-                                                    <label><input value="{{ $merchant->id }}" type="checkbox" name="merchant[]" style="margin-right: 5px;" {{ $merchantsForProduct->contains($merchant) ? 'checked' : '' }}>{{ $merchant->name }}</label></li>
-                                                    
-                                            @endforeach 
-                                            <li>
-                                                            <label><input value="{{ old('link') }}"  name="link" type="text" placeholder="Product Link" style="margin-right: 5px;"></label></li>
-                                            </ul>
-                                        </div> <!-- end form-group --> 
+                    
+
 
                                {{--  <div class="form-group">
                                         <label>Variants</label>

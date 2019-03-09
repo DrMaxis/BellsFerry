@@ -95,6 +95,21 @@ class CustomMenuItemsTableSeeder extends Seeder
             }
             $menuItem = MenuItem::firstOrNew([
                 'menu_id' => $menu->id,
+                'title' => 'Merchants',
+                'url' => '/admin/merchants',
+                'route' => null,
+            ]);
+            if (!$menuItem->exists) {
+                $menuItem->fill([
+                    'target' => '_self',
+                    'icon_class' => 'voyager-lab',
+                    'color' => null,
+                    'parent_id' => null,
+                    'order' => 7,
+                ])->save();
+            }
+            $menuItem = MenuItem::firstOrNew([
+                'menu_id' => $menu->id,
                 'title' => 'About Us',
                 'url' => '/admin/about',
                 'route' => null,
@@ -259,9 +274,9 @@ class CustomMenuItemsTableSeeder extends Seeder
 
             $menuItem = MenuItem::firstOrNew([
                 'menu_id' => $menu->id,
-                'title' => 'You',
+                'title' => 'Home',
                 'url' => '',
-                'route' => 'front-page',
+                'route' => 'homepage',
             ]);
             if (!$menuItem->exists) {
                 $menuItem->fill([
@@ -274,9 +289,9 @@ class CustomMenuItemsTableSeeder extends Seeder
             }
             $menuItem = MenuItem::firstOrNew([
                 'menu_id' => $menu->id,
-                'title' => 'Xen',
-                'url' => '/xen',
-                'route' => 'about',
+                'title' => 'Products',
+                'url' => '/products',
+                'route' => 'all-products',
             ]);
             
             if (!$menuItem->exists) {
@@ -288,9 +303,70 @@ class CustomMenuItemsTableSeeder extends Seeder
                     'order' => 16,
                 ])->save();
             }
-           
 
+            $menuItem = MenuItem::firstOrNew([
+                'menu_id' => $menu->id,
+                'title' => 'Indoor',
+                'url' => '/products?category=indoor-products',
+                'route' => '',
+            ]);
             
+            if (!$menuItem->exists) {
+                $menuItem->fill([
+                    'target' => '_self',
+                    'icon_class' => null,
+                    'color' => null,
+                    'parent_id' => null,
+                    'order' => 16,
+                ])->save();
+            }
+            $menuItem = MenuItem::firstOrNew([
+                'menu_id' => $menu->id,
+                'title' => 'Indoor',
+                'url' => '/products?category=outdoor-products',
+                'route' => '',
+            ]);
+            
+            if (!$menuItem->exists) {
+                $menuItem->fill([
+                    'target' => '_self',
+                    'icon_class' => null,
+                    'color' => null,
+                    'parent_id' => null,
+                    'order' => 16,
+                ])->save();
+            }
+
+            $menuItem = MenuItem::firstOrNew([
+                'menu_id' => $menu->id,
+                'title' => 'About',
+                'url' => '/about',
+                'route' => 'about-us',
+            ]);
+            if (!$menuItem->exists) {
+                $menuItem->fill([
+                    'target' => '_self',
+                    'icon_class' => null,
+                    'color' => null,
+                    'parent_id' => null,
+                    'order' => 15,
+                ])->save();
+            }
+            $menuItem = MenuItem::firstOrNew([
+                'menu_id' => $menu->id,
+                'title' => 'contact',
+                'url' => '/contact',
+                'route' => 'contact-us',
+            ]);
+            if (!$menuItem->exists) {
+                $menuItem->fill([
+                    'target' => '_self',
+                    'icon_class' => null,
+                    'color' => null,
+                    'parent_id' => null,
+                    'order' => 15,
+                ])->save();
+            }
             
             /*
             |--------------------------------------------------------------------------
@@ -299,26 +375,12 @@ class CustomMenuItemsTableSeeder extends Seeder
              */
             $menu = Menu::where('name', 'foot-social')->firstOrFail();
 
-            $menuItem = MenuItem::firstOrNew([
-                'menu_id' => $menu->id,
-                'title' => 'fa fa-twitter',
-                'url' => '#',
-                'route' => '#',
-            ]);
-            if (!$menuItem->exists) {
-                $menuItem->fill([
-                    'target' => '_self',
-                    'icon_class' => null,
-                    'color' => null,
-                    'parent_id' => null,
-                    'order' => 25,
-                ])->save();
-            }
+           
 
             $menuItem = MenuItem::firstOrNew([
                 'menu_id' => $menu->id,
                 'title' => 'fa fa-facebook',
-                'url' => '',
+                'url' => 'https://www.facebook.com/jjinternationalinc/',
                 'route' => '#',
             ]);
             if (!$menuItem->exists) {
@@ -331,21 +393,7 @@ class CustomMenuItemsTableSeeder extends Seeder
                 ])->save();
             }
 
-            $menuItem = MenuItem::firstOrNew([
-                'menu_id' => $menu->id,
-                'title' => 'fa fa-tumblr',
-                'url' => '',
-                'route' => '#',
-            ]);
-            if (!$menuItem->exists) {
-                $menuItem->fill([
-                    'target' => '_self',
-                    'icon_class' => null,
-                    'color' => null,
-                    'parent_id' => null,
-                    'order' => 26,
-                ])->save();
-            }
+            
 
              /*
             |--------------------------------------------------------------------------
@@ -354,11 +402,12 @@ class CustomMenuItemsTableSeeder extends Seeder
              */
             $menu = Menu::where('name', 'mobile-main')->firstOrFail();
 
+          
             $menuItem = MenuItem::firstOrNew([
                 'menu_id' => $menu->id,
-                'title' => 'You',
+                'title' => 'Home',
                 'url' => '',
-                'route' => 'front-page',
+                'route' => 'homepage',
             ]);
             if (!$menuItem->exists) {
                 $menuItem->fill([
@@ -371,10 +420,11 @@ class CustomMenuItemsTableSeeder extends Seeder
             }
             $menuItem = MenuItem::firstOrNew([
                 'menu_id' => $menu->id,
-                'title' => 'Xen',
-                'url' => '/xen',
-                'route' => 'xen',
+                'title' => 'Products',
+                'url' => '/products',
+                'route' => 'all-products',
             ]);
+            
             if (!$menuItem->exists) {
                 $menuItem->fill([
                     'target' => '_self',
@@ -382,6 +432,70 @@ class CustomMenuItemsTableSeeder extends Seeder
                     'color' => null,
                     'parent_id' => null,
                     'order' => 16,
+                ])->save();
+            }
+
+            $menuItem = MenuItem::firstOrNew([
+                'menu_id' => $menu->id,
+                'title' => 'Indoor',
+                'url' => '/products?category=indoor-products',
+                'route' => '',
+            ]);
+            
+            if (!$menuItem->exists) {
+                $menuItem->fill([
+                    'target' => '_self',
+                    'icon_class' => null,
+                    'color' => null,
+                    'parent_id' => null,
+                    'order' => 16,
+                ])->save();
+            }
+            $menuItem = MenuItem::firstOrNew([
+                'menu_id' => $menu->id,
+                'title' => 'Indoor',
+                'url' => '/products?category=outdoor-products',
+                'route' => '',
+            ]);
+            
+            if (!$menuItem->exists) {
+                $menuItem->fill([
+                    'target' => '_self',
+                    'icon_class' => null,
+                    'color' => null,
+                    'parent_id' => null,
+                    'order' => 16,
+                ])->save();
+            }
+
+            $menuItem = MenuItem::firstOrNew([
+                'menu_id' => $menu->id,
+                'title' => 'About',
+                'url' => '/about',
+                'route' => 'about-us',
+            ]);
+            if (!$menuItem->exists) {
+                $menuItem->fill([
+                    'target' => '_self',
+                    'icon_class' => null,
+                    'color' => null,
+                    'parent_id' => null,
+                    'order' => 15,
+                ])->save();
+            }
+            $menuItem = MenuItem::firstOrNew([
+                'menu_id' => $menu->id,
+                'title' => 'contact',
+                'url' => '/contact',
+                'route' => 'contact-us',
+            ]);
+            if (!$menuItem->exists) {
+                $menuItem->fill([
+                    'target' => '_self',
+                    'icon_class' => null,
+                    'color' => null,
+                    'parent_id' => null,
+                    'order' => 15,
                 ])->save();
             }
             

@@ -5,10 +5,8 @@ namespace App\Http\Controllers\Voyager;
 use App\Product;
 use App\Variant;
 use App\Category;
-use App\Merchant;
 use App\VariantProduct;
 use App\CategoryProduct;
-use App\MerchantProduct;
 use Illuminate\Http\Request;
 use TCG\Voyager\Facades\Voyager;
 use Illuminate\Support\Facades\DB;
@@ -19,8 +17,9 @@ use TCG\Voyager\Events\BreadImagesDeleted;
 use TCG\Voyager\Database\Schema\SchemaManager;
 use TCG\Voyager\Http\Controllers\VoyagerBaseController;
 use TCG\Voyager\Http\Controllers\Traits\BreadRelationshipParser;
+use App\MerchantProduct;
 
-class ProductsController extends VoyagerBaseController
+class MerchantsController extends VoyagerBaseController
 {
     use BreadRelationshipParser;
 
@@ -171,13 +170,11 @@ class ProductsController extends VoyagerBaseController
         }
 
        
-        $allCategories = Category::all();
-        $variants = Variant::all();
+  
         $merchants = Merchant::all();
         $product = Product::find($id);
         
         $merchantsForProduct = $product->merchants()->get();
-        $categoriesForProduct = $product->categories()->get();
         $variantsForProduct = $product->variants()->get();
         // If a column has a relationship associated with it, we do not want to show that field
         $this->removeRelationshipField($dataType, 'edit');
@@ -196,7 +193,7 @@ class ProductsController extends VoyagerBaseController
 
        
     
-        return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable','allCategories', 'categoriesForProduct', 'variants', 'variantsForProduct', 'merchants', 'merchantsForProduct'));
+        return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable','merchants', 'merchantssForProduct'));
     }
 
     // POST BR(E)AD
@@ -229,12 +226,12 @@ class ProductsController extends VoyagerBaseController
 
         event(new BreadDataUpdated($dataType, $data));
         
-            CategoryProduct::where('product_id', $id)->delete();
-            VariantProduct::where('product_id', $id)->delete();
+           
             MerchantProduct::where('product_id', $id)->delete();
+
             //Update if there's at least one category checked
             $this->updateProductCategories($request, $id);
-            $this->updateMerchantProducts($request, $id);
+
             $this->updateProductVariants($request, $id);
         return redirect()
         ->route("voyager.{$dataType->slug}.index")
@@ -286,13 +283,12 @@ class ProductsController extends VoyagerBaseController
             $view = "voyager::$slug.edit-add";
         }
 
-        $allCategories = Category::all();
-        $variants = ProductVariant::all();
+        
         $merchants = MerchantProduct::all();
-        $variantsForProduct = collect([]);
         $merchantsForProduct = collect([]);
+
         $categoriesForProduct = collect([]);
-        return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable', 'allCategories', 'categoriesForProduct', 'variants', 'variantsForProduct','merchants', 'merchantsForProduct'));
+        return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable',  'merchants', 'merchantsForProduct'));
     }
 
     /**
@@ -325,11 +321,10 @@ class ProductsController extends VoyagerBaseController
 
             event(new BreadDataAdded($dataType, $data));
 
-            $this->updateProductCategories($request, $data->id);
-
-            $this->updateProductVariants($request, $data->id);
+           
 
             $this->updateMerchantProducts($request, $data->id);
+
 
             if ($request->ajax()) {
                 return response()->json(['success' => true, 'data' => $data]);
@@ -344,49 +339,6 @@ class ProductsController extends VoyagerBaseController
         }
     }
 
-    protected function updateProductCategories(Request $request, $id)
-    {
-        if ($request->category) {
-
-            foreach ($request->category as $category) {
-                CategoryProduct::create([
-                    'product_id' => $id,
-                    'category_id' => $category,
-
-                ]);
-            }
-        }
-    }
-    protected function updateProductVariants(Request $request, $id)
-    {
-        if ($request->variant) {
-
-            foreach ($request->variant as $variant) {
-                VariantProduct::create([
-                    'product_id' => $id,
-                    'variant_id' => $variant,
-
-                ]);
-            }
-        }
-    }
-
-    protected function updateMerchantProducts(Request $request, $id)
-    {
-        
-       
-        if ($request->merchant) {
-
-            foreach ($request->merchant as $merchant) { 
-               
-                MerchantProduct::create([
-                    
-                    'merchant_id' => $merchant,
-                    'product_id' => $id,
-                    'merchant_product_link' => $request->link
-
-                ]);
-            }
-        }
-    }
+    
+  
 }
