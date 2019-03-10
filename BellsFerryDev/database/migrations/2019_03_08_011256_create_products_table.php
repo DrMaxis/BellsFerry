@@ -28,8 +28,8 @@ class CreateProductsTable extends Migration
             $table->boolean('featured')->default(false);
             $table->boolean('new')->default(false);
             $table->string('image')->nullable();
+            $table->longText('banner_image')->nullable();
             $table->longText('images')->nullable();
-            $table->longText('showcase_images')->nullable();
             $table->string('category')->nullable();
             $table->string('color')->nullable();
             $table->text('instructions')->nullable();

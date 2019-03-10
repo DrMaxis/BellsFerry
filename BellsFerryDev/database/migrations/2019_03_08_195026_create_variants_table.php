@@ -29,7 +29,7 @@ class CreateVariantsTable extends Migration
             $table->integer('box_height')->nullable();
             $table->string('image')->nullable();
             $table->longText('images')->nullable();
-            $table->longText('showcase_images')->nullable();
+            $table->longText('banner_image')->nullable();
             
             $table->timestamps();
         });

@@ -76,6 +76,22 @@ class CustomDataTypesTableSeeder extends Seeder
                 'details' => '{"order_column":null,"order_display_column":null}',
             ])->save();
         }
+        $dataType = $this->dataType('slug', 'links');
+        if (!$dataType->exists) {
+            $dataType->fill([
+                'name' => 'links',
+                'slug' => 'links',
+                'display_name_singular' => 'Link',
+                'display_name_plural' => 'Links',
+                'icon' => 'voyager-lab',
+                'model_name' => 'App\Link',
+                'controller' => '\App\Http\Controllers\Voyager\LinksController',
+                'generate_permissions' => 1,
+                'server_side' => 1,
+                'description' => '',
+                'details' => '{"order_column":null,"order_display_column":null}',
+            ])->save();
+        }
 
 
        

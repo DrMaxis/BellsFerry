@@ -171,11 +171,11 @@ class CustomDataRowsTableSeeder extends Seeder
             ])->save();
         }
 
-        $dataRow = $this->dataRow($productDataType, 'showcase_images');
+        $dataRow = $this->dataRow($productDataType, 'banner_image');
         if (!$dataRow->exists) {
             $dataRow->fill([
-                'type' => 'multiple_images',
-                'display_name' => 'Showcase Images',
+                'type' => 'image',
+                'display_name' => 'Banner Image',
                 'required' => 0,
                 'browse' => 1,
                 'read' => 1,
@@ -467,11 +467,11 @@ class CustomDataRowsTableSeeder extends Seeder
             ])->save();
         }
 
-        $dataRow = $this->dataRow($variantDataType, 'showcase_images');
+        $dataRow = $this->dataRow($variantDataType, 'banner_image');
         if (!$dataRow->exists) {
             $dataRow->fill([
-                'type' => 'multiple_images',
-                'display_name' => 'Showcase Images',
+                'type' => 'image',
+                'display_name' => 'Banner Image',
                 'required' => 0,
                 'browse' => 1,
                 'read' => 1,
@@ -813,6 +813,61 @@ class CustomDataRowsTableSeeder extends Seeder
                 'add' => 1,
                 'delete' => 0,
                 'details' => '{"resize":{"width":"1000","height":null},"quality":"70%","upsize":false,"thumbnails":[{"name":"medium","scale":"50%"},{"name":"small","scale":"25%"},{"name":"cropped","crop":{"width":"300","height":"250"}}]}',
+                'order' => 3,
+            ])->save();
+        }
+
+
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | Links
+        |--------------------------------------------------------------------------
+         */
+        $linkDataType = DataType::where('slug', 'links')->firstOrFail();
+        $dataRow = $this->dataRow($linkDataType, 'id');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type' => 'hidden',
+                'display_name' => 'Id',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '',
+                'order' => 1,
+            ])->save();
+        }
+        $dataRow = $this->dataRow($linkDataType, 'link');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type' => 'text',
+                'display_name' => 'Link',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '',
+                'order' => 2,
+            ])->save();
+        }
+        $dataRow = $this->dataRow($linkDataType, 'product_name');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type' => 'text',
+                'display_name' => 'Product',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '',
                 'order' => 3,
             ])->save();
         }

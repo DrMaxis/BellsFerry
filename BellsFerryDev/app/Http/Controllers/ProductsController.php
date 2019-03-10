@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Product;
 use App\Category;
+use App\LinkMerchant;
 use Illuminate\Http\Request;
 
 class ProductsController extends Controller
@@ -42,13 +43,24 @@ class ProductsController extends Controller
 
         $variantsForProduct = $product->variants()->get();
         $merchantsForProduct = $product->merchants()->get();
-        
+        $linksForProduct = $product->links()->get();
 
-        dd($merchantsForProduct);
+ 
+        
+        
+    
+   
+
+    
+    
+
+        /* dd($linksForProduct, $merchantsForProduct); */
+      
 
         return view('singleProduct')->with([
             'variantsForProduct' => $variantsForProduct,
             'merchantsForProduct' => $merchantsForProduct,
+            'linksForProduct' => $linksForProduct,
             'product' => $product,
         ]);
     }

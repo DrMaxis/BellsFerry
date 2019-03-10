@@ -17,6 +17,12 @@ public function variants() {
 }
 
 public function merchants() {
-    return $this->belongsToMany('App\Merchant');
+    return $this->belongsToMany('App\Merchant', 'merchant_product_link')->withPivot('merchant_id');
 }
+
+
+public function links() {
+    return $this->belongsToMany('App\Link', 'merchant_product_link')->withPivot('link_id');
+}
+
 }

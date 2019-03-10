@@ -171,11 +171,11 @@ class MerchantsController extends VoyagerBaseController
 
        
   
-        $merchants = Merchant::all();
-        $product = Product::find($id);
+        $products = Product::all();
+        $merchant = Merchant::find($id);
         
-        $merchantsForProduct = $product->merchants()->get();
-        $variantsForProduct = $product->variants()->get();
+        $productsForMerchant = $merchant->products()->get();
+        
         // If a column has a relationship associated with it, we do not want to show that field
         $this->removeRelationshipField($dataType, 'edit');
 
@@ -193,7 +193,7 @@ class MerchantsController extends VoyagerBaseController
 
        
     
-        return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable','merchants', 'merchantssForProduct'));
+        return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable','products', 'productsForMerchant'));
     }
 
     // POST BR(E)AD
@@ -226,13 +226,15 @@ class MerchantsController extends VoyagerBaseController
 
         event(new BreadDataUpdated($dataType, $data));
         
-           
-            MerchantProduct::where('product_id', $id)->delete();
+          
+        MerchantProduct::where('merchant_id', $id)->delete();
+        
+        //Update if there's at least one category checked
 
-            //Update if there's at least one category checked
-            $this->updateProductCategories($request, $id);
-
-            $this->updateProductVariants($request, $id);
+        
+        
+        $this->updateMerchantProducts($request, $id);
+        
         return redirect()
         ->route("voyager.{$dataType->slug}.index")
         ->with([
@@ -284,11 +286,11 @@ class MerchantsController extends VoyagerBaseController
         }
 
         
-        $merchants = MerchantProduct::all();
-        $merchantsForProduct = collect([]);
+        $products = Products::all();
+        $productsForMerchant = collect([]);
 
         $categoriesForProduct = collect([]);
-        return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable',  'merchants', 'merchantsForProduct'));
+        return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable',  'products', 'productsForMerchant'));
     }
 
     /**
@@ -315,9 +317,8 @@ class MerchantsController extends VoyagerBaseController
         }
 
         if (!$request->has('_validate')) {
-            $requestNew = $request;
-            $requestNew['price'] = $request->price;
-            $data = $this->insertUpdateData($requestNew, $slug, $dataType->addRows, new $dataType->model_name());
+         
+            $data = $this->insertUpdateData($request, $slug, $dataType->addRows, new $dataType->model_name());
 
             event(new BreadDataAdded($dataType, $data));
 
@@ -339,6 +340,18 @@ class MerchantsController extends VoyagerBaseController
         }
     }
 
-    
+    protected function updateMerchantProducts(Request $request, $id)
+    {
+        if ($request->product) {
+
+            foreach ($request->product as $product) {
+                MerchantProduct::create([
+                    'merchant_id' => $id,
+                    'product_id' => $product,
+
+                ]);
+            }
+        }
+    }
   
 }

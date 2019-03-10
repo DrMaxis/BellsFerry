@@ -16,9 +16,9 @@ class CategoryTableSeeder extends Seeder
         $now = Carbon::now()->toDateTimeString();
 
         Category::insert([
-            ['name' => 'Indoor Products', 'slug' => 'indoor-products', 'created_at' => $now, 'updated_at' => $now],
-            ['name' => 'Outdoor Products', 'slug' => 'outdoor-products', 'created_at' => $now, 'updated_at' => $now],
-            ['name' => 'Accessories', 'slug' => 'accessories', 'created_at' => $now, 'updated_at' => $now]
+            ['name' => 'Indoor Products', 'slug' => 'indoor-products'],
+            ['name' => 'Outdoor Products', 'slug' => 'outdoor-products'],
+            ['name' => 'Accessories', 'slug' => 'accessories']
         ]);
     }
 }

@@ -39,13 +39,8 @@
                     </div>
                     <div class="col-sm-5">
                         <div class="socila-footer">
-                            <ul class="social-footer-list list-inline text-right">
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                            </ul>
+                                {{menu('foot-social', 'partials.menus.foot-social')}}
+                            
                         </div>
                     </div>
                 </div>

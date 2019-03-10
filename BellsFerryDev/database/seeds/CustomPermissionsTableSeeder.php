@@ -14,6 +14,7 @@ class CustomPermissionsTableSeeder extends Seeder
         Permission::generateFor('category');
         Permission::generateFor('variants');
         Permission::generateFor('merchants');
+        Permission::generateFor('links');
         Permission::generateFor('about');
         Permission::generateFor('emails');
         

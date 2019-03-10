@@ -110,6 +110,21 @@ class CustomMenuItemsTableSeeder extends Seeder
             }
             $menuItem = MenuItem::firstOrNew([
                 'menu_id' => $menu->id,
+                'title' => 'Links',
+                'url' => '/admin/links',
+                'route' => null,
+            ]);
+            if (!$menuItem->exists) {
+                $menuItem->fill([
+                    'target' => '_self',
+                    'icon_class' => 'voyager-lab',
+                    'color' => null,
+                    'parent_id' => null,
+                    'order' => 8,
+                ])->save();
+            }
+            $menuItem = MenuItem::firstOrNew([
+                'menu_id' => $menu->id,
                 'title' => 'About Us',
                 'url' => '/admin/about',
                 'route' => null,
@@ -120,7 +135,7 @@ class CustomMenuItemsTableSeeder extends Seeder
                     'icon_class' => 'voyager-medal-rank-star',
                     'color' => null,
                     'parent_id' => null,
-                    'order' => 8,
+                    'order' => 9,
                 ])->save();
             }
             $menuItem = MenuItem::firstOrNew([
@@ -134,7 +149,7 @@ class CustomMenuItemsTableSeeder extends Seeder
                 'icon_class' => 'voyager-lock',
                 'color' => null,
                 'parent_id' => null,
-                'order' => 9,
+                'order' => 10,
             ])->save();
             $menuItem = MenuItem::firstOrNew([
                 'menu_id' => $menu->id,
@@ -147,7 +162,7 @@ class CustomMenuItemsTableSeeder extends Seeder
                 'icon_class' => 'voyager-person',
                 'color' => null,
                 'parent_id' => null,
-                'order' => 10,
+                'order' => 11,
             ])->save();
             $menuItem = MenuItem::firstOrNew([
                 'menu_id' => $menu->id,
@@ -160,7 +175,7 @@ class CustomMenuItemsTableSeeder extends Seeder
                 'icon_class' => 'voyager-images',
                 'color' => null,
                 'parent_id' => null,
-                'order' => 11,
+                'order' => 12,
             ])->save();
             $menuItem = MenuItem::firstOrNew([
                 'menu_id' => $menu->id,
@@ -173,7 +188,7 @@ class CustomMenuItemsTableSeeder extends Seeder
                 'icon_class' => 'voyager-news',
                 'color' => null,
                 'parent_id' => null,
-                'order' => 12,
+                'order' => 13,
             ])->save();
             $menuItem = MenuItem::firstOrNew([
                 'menu_id' => $menu->id,
@@ -186,7 +201,7 @@ class CustomMenuItemsTableSeeder extends Seeder
                 'icon_class' => 'voyager-file-text',
                 'color' => null,
                 'parent_id' => null,
-                'order' => 13,
+                'order' => 14,
             ])->save();
             $toolsMenuItem = MenuItem::firstOrNew([
                 'menu_id' => $menu->id,
@@ -198,7 +213,7 @@ class CustomMenuItemsTableSeeder extends Seeder
                 'icon_class' => 'voyager-tools',
                 'color' => null,
                 'parent_id' => null,
-                'order' => 14,
+                'order' => 15,
             ])->save();
             $menuItem = MenuItem::firstOrNew([
                 'menu_id' => $menu->id,
@@ -211,7 +226,7 @@ class CustomMenuItemsTableSeeder extends Seeder
                 'icon_class' => 'voyager-settings',
                 'color' => null,
                 'parent_id' => null,
-                'order' => 15,
+                'order' => 16,
             ])->save();
             $menuItem = MenuItem::firstOrNew([
                 'menu_id' => $menu->id,
@@ -224,7 +239,7 @@ class CustomMenuItemsTableSeeder extends Seeder
                 'icon_class' => 'voyager-categories',
                 'color' => null,
                 'parent_id' => null,
-                'order' => 16,
+                'order' => 17,
             ])->save();
             $menuItem = MenuItem::firstOrNew([
                 'menu_id' => $menu->id,
@@ -308,7 +323,7 @@ class CustomMenuItemsTableSeeder extends Seeder
                 'menu_id' => $menu->id,
                 'title' => 'Indoor',
                 'url' => '/products?category=indoor-products',
-                'route' => '',
+                'route' => null,
             ]);
             
             if (!$menuItem->exists) {
@@ -317,14 +332,14 @@ class CustomMenuItemsTableSeeder extends Seeder
                     'icon_class' => null,
                     'color' => null,
                     'parent_id' => null,
-                    'order' => 16,
+                    'order' => 17,
                 ])->save();
             }
             $menuItem = MenuItem::firstOrNew([
                 'menu_id' => $menu->id,
-                'title' => 'Indoor',
+                'title' => 'Outdoor',
                 'url' => '/products?category=outdoor-products',
-                'route' => '',
+                'route' => null,
             ]);
             
             if (!$menuItem->exists) {
@@ -333,7 +348,7 @@ class CustomMenuItemsTableSeeder extends Seeder
                     'icon_class' => null,
                     'color' => null,
                     'parent_id' => null,
-                    'order' => 16,
+                    'order' => 18,
                 ])->save();
             }
 
@@ -349,7 +364,7 @@ class CustomMenuItemsTableSeeder extends Seeder
                     'icon_class' => null,
                     'color' => null,
                     'parent_id' => null,
-                    'order' => 15,
+                    'order' => 19,
                 ])->save();
             }
             $menuItem = MenuItem::firstOrNew([
@@ -364,7 +379,7 @@ class CustomMenuItemsTableSeeder extends Seeder
                     'icon_class' => null,
                     'color' => null,
                     'parent_id' => null,
-                    'order' => 15,
+                    'order' => 20,
                 ])->save();
             }
             
@@ -439,7 +454,7 @@ class CustomMenuItemsTableSeeder extends Seeder
                 'menu_id' => $menu->id,
                 'title' => 'Indoor',
                 'url' => '/products?category=indoor-products',
-                'route' => '',
+                'route' => '#',
             ]);
             
             if (!$menuItem->exists) {
@@ -448,14 +463,14 @@ class CustomMenuItemsTableSeeder extends Seeder
                     'icon_class' => null,
                     'color' => null,
                     'parent_id' => null,
-                    'order' => 16,
+                    'order' => 17,
                 ])->save();
             }
             $menuItem = MenuItem::firstOrNew([
                 'menu_id' => $menu->id,
-                'title' => 'Indoor',
+                'title' => 'Outdoor',
                 'url' => '/products?category=outdoor-products',
-                'route' => '',
+                'route' => '#',
             ]);
             
             if (!$menuItem->exists) {
@@ -464,7 +479,7 @@ class CustomMenuItemsTableSeeder extends Seeder
                     'icon_class' => null,
                     'color' => null,
                     'parent_id' => null,
-                    'order' => 16,
+                    'order' => 18,
                 ])->save();
             }
 
@@ -480,7 +495,7 @@ class CustomMenuItemsTableSeeder extends Seeder
                     'icon_class' => null,
                     'color' => null,
                     'parent_id' => null,
-                    'order' => 15,
+                    'order' => 19,
                 ])->save();
             }
             $menuItem = MenuItem::firstOrNew([
@@ -495,7 +510,7 @@ class CustomMenuItemsTableSeeder extends Seeder
                     'icon_class' => null,
                     'color' => null,
                     'parent_id' => null,
-                    'order' => 15,
+                    'order' => 20,
                 ])->save();
             }
             

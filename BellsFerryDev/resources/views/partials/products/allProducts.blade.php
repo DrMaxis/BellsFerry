@@ -1,7 +1,7 @@
 
         
         @section('search')
-@include('inc.search');
+@include('inc.search')
         @endsection
         
         <!-- Categories Product Start -->

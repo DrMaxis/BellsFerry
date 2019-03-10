@@ -78,38 +78,28 @@
                                 @endif
                             @endforeach
                               <div class="form-group">
-                                    <label>Categories</label>
+                                    <label>Proucts</label>
     
                                     <ul style="list-style-type: none; padding-left: 0">
-                                    @foreach ($allCategories as $category)
-                                        <li><label><input value="{{ $category->id }}" type="checkbox" name="category[]" style="margin-right: 5px;" {{ $categoriesForProduct->contains($category) ? 'checked' : '' }}>{{ $category->name }}</label></li>
+                                    @foreach ($products as $product)
+                                        <li><label class="productSelection"><input value="{{ $product->id }}" type="checkbox" name="product" style="margin-right: 5px;" {{ $productsForLink->contains($product) ? 'checked' : '' }}>{{ $product->name }}</label></li>
                                     @endforeach
                                     </ul>
                                 </div> <!-- end form-group --> 
 
-
-                                <div class="form-group">
-                                        <label>Variants</label>
-        
-                                        <ul style="list-style-type: none; padding-left: 0">
-                                        @foreach ($variants as $variant)
-                                            <li><label><input value="{{ $variant->id }}" type="checkbox" name="variant[]" style="margin-right: 5px;" {{ $variantsForProduct->contains($variant) ? 'checked' : '' }}>{{ $variant->name }}</label></li>
-                                        @endforeach
-                                        </ul>
-                                    </div> <!-- end form-group --> 
                                     <div class="form-group">
                                             <label>Merchants</label>
             
                                             <ul style="list-style-type: none; padding-left: 0">
                                             @foreach ($merchants as $merchant)
                                                 <li>
-                                                    <label><input value="{{ $merchant->id }}" type="checkbox" name="merchant[]" style="margin-right: 5px;" {{ $merchantsForProduct->contains($merchant) ? 'checked' : '' }}>{{ $merchant->name }}</label></li>
+                                                    <label class="merchantSelection"><input value="{{ $merchant->id }}" type="checkbox" name="merchant" style="margin-right: 5px;" {{ $merchantsForLink->contains($merchant) ? 'checked' : '' }}>{{ $merchant->name }}</label></li>
                                                     
                                             @endforeach 
-                                          
+                                           
                                             </ul>
                                         </div> <!-- end form-group --> 
-
+                                    
                                {{--  <div class="form-group">
                                         <label>Variants</label>
         
@@ -169,6 +159,38 @@
 @stop
 
 @section('javascript')
+
+
+<script>
+        (function() {
+          
+            $('.productSelection input:checkbox').click(function(){
+    var $inputs = $('.productSelection input:checkbox'); 
+    if($(this).is(':checked')){  // <-- check if clicked box is currently checked
+       $inputs.not(this).prop('disabled',true); // <-- disable all but checked checkbox
+    }else{  //<-- if checkbox was unchecked
+       $inputs.prop('disabled',false); // <-- enable all checkboxes
+    }
+})
+      
+      })();
+      </script>
+
+
+<script>
+        (function() {
+          
+            $('.merchantSelection input:checkbox').click(function(){
+    var $inputs = $('.merchantSelection input:checkbox'); 
+    if($(this).is(':checked')){  // <-- check if clicked box is currently checked
+       $inputs.not(this).prop('disabled',true); // <-- disable all but checked checkbox
+    }else{  //<-- if checkbox was unchecked
+       $inputs.prop('disabled',false); // <-- enable all checkboxes
+    }
+})
+      
+      })();
+      </script>
     <script>
         var params = {};
         var $file;

@@ -83,19 +83,6 @@
                     
 
 
-                               {{--  <div class="form-group">
-                                        <label>Variants</label>
-        
-                                        <ul style="list-style-type: none; padding-left: 0">
-                                        @foreach ($variants as $variant)
-                                            <li>
-                                                
-                                                <a style="margin-right: 5px;"> {{ $variant->name }}</a>
-                                           
-                                        </li>
-                                        @endforeach
-                                        </ul>
-                                    </div> <!-- end form-group --> --}}  
                         </div><!-- panel-body -->
 
                         <div class="panel-footer">
@@ -142,6 +129,18 @@
 @stop
 
 @section('javascript')
+
+
+<script>
+
+
+for (i=0; i<document.test.finallevelusers.length; i++){
+if (document.test.finallevelusers[i].checked !=true)
+  document.test.finallevelusers[i].disabled='true';
+}
+
+</script>
+
     <script>
         var params = {};
         var $file;

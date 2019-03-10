@@ -15,15 +15,17 @@
                 {{-- Mobile Menu Start --}}
                 <div class="mobile-menu visible-sm visible-xs">
                     <nav style="display: block;">
-                        <ul class="primary-menu-list text-center">
+                      {{--   <ul class="primary-menu-list text-center">
                             <li><a href="{{route('homepage')}}">home</a></li>
                             <li><a href="{{route('all-products')}}">Products</a></li>
                             <li class="static-menu"><a href="{{ route('all-products', ['category' => 'indoor-products'])}}">Indoor</a></li>
                             <li class="static-menu"><a href="{{ route('all-products', ['category' => 'outdoor-products'])}}">Outdoor</a></li>
                             <li><a href="{{route('about-us')}}">about us</a></li>
                             <li><a href="{{route('contact-us')}}">contact</a></li>
-    
-                        </ul>
+                            
+                        </ul> --}}
+{{menu('mobile-main', 'partials.menus.mobile-main')}}
+
                     </nav>
                 </div>
                 {{-- Mobile Menu End --}}
@@ -34,15 +36,18 @@
     
     <div class="primary-menu">
             <nav>
-                <ul class="primary-menu-list text-center">
-                        <li><a href="{{route('homepage')}}">home</a></li>
+
+                  {{menu('main', 'partials.menus.main')}}  
+                {{-- <ul class="primary-menu-list text-center">
+                    
+                         <li><a href="{{route('homepage')}}">home</a></li>
                         <li><a href="{{route('all-products')}}">Products</a></li>
                         <li class="static-menu"><a href="{{ route('all-products', ['category' => 'indoor-products'])}}">Indoor</a></li>
                         <li class="static-menu"><a href="{{ route('all-products', ['category' => 'outdoor-products'])}}">Outdoor</a></li>
                         <li><a href="{{route('about-us')}}">about us</a></li>
-                        <li><a href="{{route('contact-us')}}">contact</a></li>
+                        <li><a href="{{route('contact-us')}}">contact</a></li> 
                     @yield('search')
-                </ul>
+                </ul> --}}
             </nav>
         </div>
 

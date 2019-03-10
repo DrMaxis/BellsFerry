@@ -2,12 +2,16 @@
 
 namespace App\Http\Controllers\Voyager;
 
-use App\Email;
+use App\Link;
 use App\Product;
 use App\Variant;
 use App\Category;
+use App\Merchant;
+use App\LinkProduct;
+use App\LinkMerchant;
 use App\VariantProduct;
 use App\CategoryProduct;
+use App\MerchantProduct;
 use Illuminate\Http\Request;
 use TCG\Voyager\Facades\Voyager;
 use Illuminate\Support\Facades\DB;
@@ -18,11 +22,13 @@ use TCG\Voyager\Events\BreadImagesDeleted;
 use TCG\Voyager\Database\Schema\SchemaManager;
 use TCG\Voyager\Http\Controllers\VoyagerBaseController;
 use TCG\Voyager\Http\Controllers\Traits\BreadRelationshipParser;
+use App\MerchantProductLink;
 
-class EmailsController extends VoyagerBaseController
+class LinksController extends VoyagerBaseController
 {
     use BreadRelationshipParser;
 
+    
     //***************************************
     //               ____
     //              |  _ \
@@ -129,7 +135,7 @@ class EmailsController extends VoyagerBaseController
         ));
     }
 
-    
+ 
     //***************************************
     //                _____
     //               |  __ \
@@ -174,13 +180,14 @@ class EmailsController extends VoyagerBaseController
             $view = "voyager::$slug.read";
         }
 
-        $email = Email::find($id);
-        
+        $link = Link::find($id);
+        $products = $link->products;
+        $merchants = $link->merchants;
 
-        return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable',  'email'));
+        return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable', 'products','merchants', 'link'));
     }
 
-
+    
 
     //***************************************
     //                ______
@@ -200,14 +207,38 @@ class EmailsController extends VoyagerBaseController
 
         $dataType = Voyager::model('DataType')->where('slug', '=', $slug)->first();
 
-        $dataTypeContent = (strlen($dataType->model_name) != 0)
-            ? app($dataType->model_name)->findOrFail($id)
-            : DB::table($dataType->name)->where('id', $id)->first(); // If Model doest exist, get data from table name
+        if (strlen($dataType->model_name) != 0) {
+            $model = app($dataType->model_name);
+
+            // Use withTrashed() if model uses SoftDeletes and if toggle is selected
+            if ($model && in_array(SoftDeletes::class, class_uses($model))) {
+                $model = $model->withTrashed();
+            }
+            if ($dataType->scope && $dataType->scope != '' && method_exists($model, 'scope'.ucfirst($dataType->scope))) {
+                $model = $model->{$dataType->scope}();
+            }
+            $dataTypeContent = call_user_func([$model, 'findOrFail'], $id);
+        } else {
+            // If Model doest exist, get data from table name
+            $dataTypeContent = DB::table($dataType->name)->where('id', $id)->first();
+        }
 
         foreach ($dataType->editRows as $key => $row) {
             $dataType->editRows[$key]['col_width'] = isset($row->details->width) ? $row->details->width : 100;
         }
 
+       
+        
+        
+        $merchants = Merchant::all();
+        $products = Product::all();
+        $link = Link::find($id);
+        
+        $merchantsForLink = $link->merchants()->get();
+        $productsForLink = $link->products()->get();
+
+        
+        
         // If a column has a relationship associated with it, we do not want to show that field
         $this->removeRelationshipField($dataType, 'edit');
 
@@ -223,18 +254,9 @@ class EmailsController extends VoyagerBaseController
             $view = "voyager::$slug.edit-add";
         }
 
-        $allCategories = Category::all();
-        $variants = Variant::all();
-        $product = Product::find($id);
-        
-        $categoriesForProduct = $product->categories()->get();
-        $variantsForProduct = $product->variants()->get();
-
-
-        
-        
-        
-        return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable','allCategories', 'categoriesForProduct', 'variants', 'variantsForProduct'));
+       
+    
+        return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable', 'products', 'merchants', 'merchantsForLink', 'productsForLink'));
     }
 
     // POST BR(E)AD
@@ -247,41 +269,43 @@ class EmailsController extends VoyagerBaseController
         // Compatibility with Model binding.
         $id = $id instanceof Model ? $id->{$id->getKeyName()} : $id;
 
-        $data = call_user_func([$dataType->model_name, 'findOrFail'], $id);
+        $model = app($dataType->model_name);
+        if ($dataType->scope && $dataType->scope != '' && method_exists($model, 'scope'.ucfirst($dataType->scope))) {
+            $model = $model->{$dataType->scope}();
+        }
+        if ($model && in_array(SoftDeletes::class, class_uses($model))) {
+            $data = $model->withTrashed()->findOrFail($id);
+        } else {
+            $data = call_user_func([$dataType->model_name, 'findOrFail'], $id);
+        }
 
         // Check permission
         $this->authorize('edit', $data);
 
         // Validate fields with ajax
-        $val = $this->validateBread($request->all(), $dataType->editRows, $dataType->name, $id);
+        $val = $this->validateBread($request->all(), $dataType->editRows, $dataType->name, $id)->validate();
+        $this->insertUpdateData($request, $slug, $dataType->editRows, $data);
 
-        if ($val->fails()) {
-            return response()->json(['errors' => $val->messages()]);
-        }
 
-        if (!$request->ajax()) {
-            $this->insertUpdateData($request, $slug, $dataType->editRows, $data);
-
-            event(new BreadDataUpdated($dataType, $data));
-
-            CategoryProduct::where('product_id', $id)->delete();
-            VariantProduct::where('product_id', $id)->delete();
-
+        event(new BreadDataUpdated($dataType, $data));
+        
+            MerchantProductLink::where('link_id', $id)->delete();
+           
             //Update if there's at least one category checked
-            $this->updateProductCategories($request, $id);
 
-            $this->updateProductVariants($request, $id);
             
-            return redirect()
-                ->route("voyager.{$dataType->slug}.index")
-                ->with([
-                    'message'    => __('voyager::generic.successfully_updated')." {$dataType->display_name_singular}",
-                    'alert-type' => 'success',
-                ]);
-        }
+            
+            $this->updateMerchantProductLink($request, $id);
+            
+        return redirect()
+        ->route("voyager.{$dataType->slug}.index")
+        ->with([
+            'message'    => __('voyager::generic.successfully_updated')." {$dataType->display_name_singular}",
+            'alert-type' => 'success',
+        ]);
     }
 
-    //***************************************
+     //***************************************
     //
     //                   /\
     //                  /  \
@@ -304,11 +328,11 @@ class EmailsController extends VoyagerBaseController
         $this->authorize('add', app($dataType->model_name));
 
         $dataTypeContent = (strlen($dataType->model_name) != 0)
-            ? new $dataType->model_name()
-            : false;
+                            ? new $dataType->model_name()
+                            : false;
 
         foreach ($dataType->addRows as $key => $row) {
-            $dataType->addRows[$key]['col_width'] = isset($row->details->width) ? $row->details->width : 100;
+            $dataType->addRows[$key]['col_width'] = $row->details->width ?? 100;
         }
 
         // If a column has a relationship associated with it, we do not want to show that field
@@ -323,12 +347,12 @@ class EmailsController extends VoyagerBaseController
             $view = "voyager::$slug.edit-add";
         }
 
-        $allCategories = Category::all();
-        $variants = ProductVariant::all();
-        $variantsForProduct = collect([]);
+        $products = Product::all();
+        $merchants = Merchant::all();
+        $productsForLink = collect();
+        $merchantsForLink = collect();
 
-        $categoriesForProduct = collect([]);
-        return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable', 'allCategories', 'categoriesForProduct', 'variants', 'variantsForProduct'));
+        return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable', 'merchants','products', 'productsForLink', 'merchantsForLink'));
     }
 
     /**
@@ -348,65 +372,41 @@ class EmailsController extends VoyagerBaseController
         $this->authorize('add', app($dataType->model_name));
 
         // Validate fields with ajax
-        $val = $this->validateBread($request->all(), $dataType->addRows);
+        $val = $this->validateBread($request->all(), $dataType->addRows)->validate();
+       
+        $data = $this->insertUpdateData($request, $slug, $dataType->addRows, new $dataType->model_name());
 
-        if ($val->fails()) {
-            return response()->json(['errors' => $val->messages()]);
-        }
-
-        if (!$request->has('_validate')) {
-            
-            $data = $this->insertUpdateData($request, $slug, $dataType->addRows, new $dataType->model_name());
-
-            event(new BreadDataAdded($dataType, $data));
-
-            $this->updateProductCategories($request, $data->id);
-
-            $this->updateProductVariants($request, $data->id);
-
-
-            if ($request->ajax()) {
-                return response()->json(['success' => true, 'data' => $data]);
-            }
-
-            return redirect()
-                ->route("voyager.{$dataType->slug}.index")
-                ->with([
-                    'message' => __('voyager::generic.successfully_added_new') . " {$dataType->display_name_singular}",
-                    'alert-type' => 'success',
-                ]);
-        }
+        event(new BreadDataAdded($dataType, $data));
+        $this->updateMerchantProductLink($request, $data->id);
+        return redirect()
+        ->route("voyager.{$dataType->slug}.index")
+        ->with([
+                'message'    => __('voyager::generic.successfully_added_new')." {$dataType->display_name_singular}",
+                'alert-type' => 'success',
+            ]);
     }
-
-
-    protected function updateProductCategories(Request $request, $id)
+    protected function updateMerchantProductLink(Request $request, $id)
     {
-        if ($request->category) {
+        
+        
 
-            foreach ($request->category as $category) {
-                CategoryProduct::create([
-                    'product_id' => $id,
-                    'category_id' => $category,
 
-                ]);
+        if ($request) {
+           
+           
+                
+             MerchantProductLink::create([
+                'merchant_id' => $request->merchant,
+                'product_id' => $request->product,
+                'link_id' => $id,
+
+            ]);
             }
-        }
+           
+        } 
+     
     }
+ 
 
+  
 
-    protected function updateProductVariants(Request $request, $id)
-    {
-        if ($request->variant) {
-
-            foreach ($request->variant as $variant) {
-                VariantProduct::create([
-                    'product_id' => $id,
-                    'variant_id' => $variant,
-
-                ]);
-            }
-        }
-    }
-
-
-}

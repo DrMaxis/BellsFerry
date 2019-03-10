@@ -319,9 +319,8 @@ class ProductsController extends VoyagerBaseController
         }
 
         if (!$request->has('_validate')) {
-            $requestNew = $request;
-            $requestNew['price'] = $request->price;
-            $data = $this->insertUpdateData($requestNew, $slug, $dataType->addRows, new $dataType->model_name());
+           
+            $data = $this->insertUpdateData($request, $slug, $dataType->addRows, new $dataType->model_name());
 
             event(new BreadDataAdded($dataType, $data));
 
