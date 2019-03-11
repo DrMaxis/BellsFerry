@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Product;
 use App\Category;
-use App\LinkMerchant;
 use Illuminate\Http\Request;
 
 class ProductsController extends Controller
@@ -45,14 +44,6 @@ class ProductsController extends Controller
         $merchantsForProduct = $product->merchants()->get();
         $linksForProduct = $product->links()->get();
 
- 
-        
-        
-    
-   
-
-    
-    
 
         /* dd($linksForProduct, $merchantsForProduct); */
       
@@ -64,6 +55,21 @@ class ProductsController extends Controller
             'product' => $product,
         ]);
     }
+
+
+    public function search(Request $request)
+    {
+        $request->validate([
+            'query' => 'required|min:3',
+        ]);
+        $query = $request->input('query');
+         $products = Product::where('name', 'like', "%$query%")
+                            ->orWhere('details', 'like', "%$query%")
+                            ->orWhere('description', 'like', "%$query%")
+                            ->paginate(10);
+        return view('searchResults')->with('products', $products);
+    }
+
 }
 
 
