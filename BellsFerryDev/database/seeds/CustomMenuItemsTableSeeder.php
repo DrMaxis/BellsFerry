@@ -396,7 +396,7 @@ class CustomMenuItemsTableSeeder extends Seeder
                 'menu_id' => $menu->id,
                 'title' => 'fa fa-facebook',
                 'url' => 'https://www.facebook.com/jjinternationalinc/',
-                'route' => '#',
+                'route' => null,
             ]);
             if (!$menuItem->exists) {
                 $menuItem->fill([

@@ -8,7 +8,7 @@
                     {{-- Single Footer Start --}}
                     <div class="single-footer col-md-11 col-sm-11 text-center">
                         <div class="footer-logo">
-                            <a href="#"><img class="img" src="{{asset('assets/imgs/logos/logo.png')}}" alt="logo-img"></a>
+                            <a href="{{route('about-us')}}"><img class="img" src="{{asset('assets/imgs/logos/logo.png')}}" alt="logo-img"></a>
                         </div>
                         <div class="footer-content">
                             <p>About JJ International, Inc</p>
@@ -34,7 +34,7 @@
             <div class="container-footer ptb-30">
                 <div class="row">
                     <div class="col-sm-7">
-                        <p class="text-left copyright-text">Copyright © <a target="_blank" href="#">JJ
+                    <p class="text-left copyright-text">Copyright © <a href="{{route('about-us')}}">JJ
                                     International</a> All Rights Reserved.</p>
                     </div>
                     <div class="col-sm-5">
