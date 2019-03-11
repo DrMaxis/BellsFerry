@@ -11,7 +11,7 @@ function productImage($path)
 
 function contentImage($path)
 {
-    return  $path != null && file_exists('storage/' . $path) ? asset('storage/' . $path) : asset('pubassets/imgs/headers/about-us.png');
+    return  $path != null && file_exists('storage/' . $path) ? asset('storage/' . $path) : asset('assets/imgs/about-us.png');
 }
 
 
