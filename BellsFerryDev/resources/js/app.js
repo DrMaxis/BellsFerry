@@ -66,7 +66,7 @@ NOTE: main.js, All custom script and plugin activation script in this file.
     /*----------------------------
     4. NivoSlider Activation
     -----------------------------*/
-    $('#slider').nivoSlider({
+     $('#slider').nivoSlider({
         effect: 'random',
         animSpeed: 300,
         pauseTime: 10000,
@@ -77,7 +77,11 @@ NOTE: main.js, All custom script and plugin activation script in this file.
         controlNav: false,
         prevText: "<i class='zmdi zmdi-chevron-left'></i>",
         nextText: "<i class='zmdi zmdi-chevron-right'></i>"
-    });
+    }); 
+
+
+    
+
     
     /*----------------------------
     5. Footer Banner Slider Activation

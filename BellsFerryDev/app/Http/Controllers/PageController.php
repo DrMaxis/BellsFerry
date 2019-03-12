@@ -12,10 +12,11 @@ class PageController extends Controller
 
 
     public function index() {
-
+        $products = Product::all();
         $productsOnSale = Product::where('featured', '=', 1)->get();
         $newProducts = Product::where('new', '=', 1)->get();
         return view('homepage')->with([
+            'products' => $products,
             'newProducts' => $newProducts,
             'productsOnSale' => $productsOnSale,
         ]);
