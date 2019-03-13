@@ -21,7 +21,7 @@
 
   @include('inc.footer')
 </div>
- @yield('xjs')
+ 
  <!-- Wrapper End -->
     <!-- jquery 3.12.4 -->
     <script src="{{asset('js/dependantJs.js')}}"></script>
@@ -46,7 +46,7 @@
     <!-- main js -->
     <script src="{{asset('js/app.js')}}"></script>
 
-   
+   @yield('xjs')
 </body>
 
 </html>

@@ -23,7 +23,7 @@ class ProductsController extends Controller
 
 
         } else {
-            $products = Product::inRandomOrder()->take(8)->get();
+            $products = Product::inRandomOrder()->take(10)->get();
            
 
         }

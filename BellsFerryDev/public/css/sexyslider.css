@@ -1,0 +1,231 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700|Open+Sans:400|Open+Sans+Condensed:300|Ubuntu+Mono|Material+Icons);* {
+  font-family: "Montserrat";
+  padding: 0;
+  margin: 0;
+}
+
+html #container {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #282828;
+}
+
+html #container.compact .content:not(.active) {
+  width: 0%;
+}
+
+html #container .content {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 5px 10px 20px black;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-filter: saturate(50%);
+  filter: saturate(50%);
+  transition-property: width, -webkit-filter;
+  transition-property: filter, width;
+  transition-property: filter, width, -webkit-filter;
+  transition-duration: 0.5s;
+  transition-timing-function: ease-in-out;
+  transition-delay: 0.5s;
+}
+
+html #container .content.transition {
+  width: 50% !important;
+}
+
+html #container .content:before {
+  content: "";
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  bottom: 10px;
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0%) scale(0.5);
+  transform: translate(-50%, 0%) scale(0.5);
+  background-color: rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 5px 1px rgba(0, 0, 0, 0.3) inset;
+  border-radius: 50%;
+  transition: background-color 0.5s ease-in-out, -webkit-transform 0.5s ease-in-out;
+  transition: background-color 0.5s ease-in-out, transform 0.5s ease-in-out;
+  transition: background-color 0.5s ease-in-out, transform 0.5s ease-in-out, -webkit-transform 0.5s ease-in-out;
+}
+
+html #container .content.active {
+  width: 1000%;
+  -webkit-filter: saturate(75%);
+  filter: saturate(75%);
+  transition-delay: 0.5s;
+}
+
+html #container .content.active .info-logo {
+  color: white;
+  margin-top: 0px;
+}
+
+html #container .content.active:before {
+  background-color: rgba(255, 255, 255, 0.3);
+  -webkit-transform: translate(-50%, 0%) scale(1);
+  transform: translate(-50%, 0%) scale(1);
+}
+
+html #container .content:not(.active) {
+  cursor: pointer;
+  width: 100%;
+}
+
+html #container .content:not(.active) .info-wrapper {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out 0s;
+}
+
+html #container .content .bottom-divider {
+  position: absolute;
+  bottom: 50px;
+  width: 80%;
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+html #container .content .info-logo {
+  text-align: center;
+  font-size: 2em;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 100px;
+  transition: color 0.5s ease-in-out, margin-top 0.5s ease-in-out;
+}
+
+html #container .content .info-wrapper {
+  color: white;
+  margin: 40px;
+  transition: opacity 1s ease-in-out 1s;
+}
+
+html #container .content .info-wrapper h3.slidetitle {
+  font-size: 3em;
+}
+
+html #container .content .info-wrapper h3.slidetitle span {
+  font-size: 0.25em;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+html #container .content .info-wrapper p {
+  width: 50%;
+  line-height: 30px;
+}
+
+html #container .playbutton {
+  padding: 10px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+html #container .playbutton i {
+  background-color: rgba(255, 255, 255, 0.1);
+  font-size: 3em;
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  color: white;
+  padding: 20px;
+  border-radius: 50%;
+  text-shadow: 4px 4px 5px rgba(0, 0, 0, 0.2);
+  transition-property: opacity, text-shadow, background-color, -webkit-transform;
+  transition-property: opacity, transform, text-shadow, background-color;
+  transition-property: opacity, transform, text-shadow, background-color, -webkit-transform;
+  transition-duration: 0.25s;
+  transition-timing-function: ease-in-out;
+}
+
+html #container .playbutton:hover i {
+  background-color: rgba(255, 255, 255, 0.2);
+  text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+html #container .playbutton .play {
+  opacity: 0;
+  -webkit-transform: rotateZ(180deg);
+  transform: rotateZ(180deg);
+}
+
+html #container .playbutton .pause {
+  opacity: 1;
+  -webkit-transform: rotateZ(0deg);
+  transform: rotateZ(0deg);
+}
+
+html #container .playbutton.paused .play {
+  opacity: 1;
+  -webkit-transform: rotateZ(0deg);
+  transform: rotateZ(0deg);
+}
+
+html #container .playbutton.paused .pause {
+  opacity: 0;
+  -webkit-transform: rotateZ(-180deg);
+  transform: rotateZ(-180deg);
+}
+
+html #container .slide-left,
+html #container .slide-right {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translate(0%, -50%);
+  transform: translate(0%, -50%);
+  color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+  transition-property: color, padding, left, right;
+  transition-duration: 0.25s;
+  transition-timing-function: ease-in-out;
+}
+
+html #container .slide-left:hover,
+html #container .slide-right:hover {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+html #container .slide-left:hover.slide-left,
+html #container .slide-right:hover.slide-left {
+  left: 0px;
+}
+
+html #container .slide-left:hover.slide-right,
+html #container .slide-right:hover.slide-right {
+  right: 0px;
+}
+
+html #container .slide-left:active,
+html #container .slide-right:active {
+  background-color: rgba(255, 255, 255, 0.2);
+  text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+}
+
+html #container .slide-left i,
+html #container .slide-right i {
+  font-size: 5em;
+  margin-top: 5px;
+}
+
+html #container .slide-left {
+  left: -10px;
+  border-radius: 0px 60px 60px 0px;
+}
+
+html #container .slide-right {
+  right: -10px;
+  border-radius: 60px 0px 0px 60px;
+}
+

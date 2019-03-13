@@ -20,6 +20,7 @@
   position: absolute;
   top: 0px;
   left: 0px;
+  max-height: 600px;
   max-width: none;
 }
 

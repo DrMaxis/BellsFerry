@@ -3,8 +3,12 @@
 
 
 @section('xcss')
-<link href="{{asset('css/skdslider.css')}}" rel="stylesheet">
+<link href="{{asset('css/sexyslider.css')}}" rel="stylesheet">
 <style>
+
+
+
+
 
 .h-100 {
     height:100% !important;
@@ -91,7 +95,7 @@
   width: 11px !important;
   height: 11px !important;
   margin-bottom: 1px !important;
-}
+} 
 
 </style>
 @endsection
@@ -111,7 +115,81 @@
 @endsection
 
 @section('xjs')
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-<script src="{{asset('js/skdslider.js')}}"></script>
 
+
+  
+<script src="{{asset('js/sexyslider.js')}}"></script>
+
+<script>
+/* 
+$('.owl-carousel').owlCarousel({
+    stagePadding: 200,
+    loop:true,
+    margin:10,
+    nav:false,
+    items:1,
+    lazyLoad: true,
+    nav:true,
+  responsive:{
+        0:{
+            items:1,
+            stagePadding: 60
+        },
+        600:{
+            items:1,
+            stagePadding: 100
+        },
+        1000:{
+            items:1,
+            stagePadding: 200
+        },
+        1200:{
+            items:1,
+            stagePadding: 250
+        },
+        1400:{
+            items:1,
+            stagePadding: 300
+        },
+        1600:{
+            items:1,
+            stagePadding: 350
+        },
+        1800:{
+            items:1,
+            stagePadding: 400
+        }
+    }
+}) */
+
+
+
+(function () {
+        $('.owl-carousel').owlCarousel({
+            stagePadding: 200,
+            loop: true,
+            margin: 10,
+            nav: false,
+            items: 1,
+            dots: false,
+            autoplay: true,
+            lazyLoad: true,
+            responsive: {
+                0: {
+                    items: 1,
+                    stagePadding: 30
+                },
+                600: {
+                    items: 1,
+                    stagePadding: 100
+                },
+                1000: {
+                    items: 1,
+                    stagePadding: 200
+                }
+            }
+        })
+
+    })();
+</script>
 @endsection
