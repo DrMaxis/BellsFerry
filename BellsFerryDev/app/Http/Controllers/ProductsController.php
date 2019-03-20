@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Product;
 use App\Category;
+use App\ProductPiece;
 use Illuminate\Http\Request;
 
 class ProductsController extends Controller
@@ -40,6 +41,8 @@ class ProductsController extends Controller
 
         $product = Product::where('slug', $slug)->firstOrFail();
 
+        $productPieces = ProductPiece::where('product_id', $product->id)->get();
+
         $variantsForProduct = $product->variants()->get();
         $merchantsForProduct = $product->merchants()->get();
         $linksForProduct = $product->links()->get();
@@ -53,6 +56,7 @@ class ProductsController extends Controller
             'merchantsForProduct' => $merchantsForProduct,
             'linksForProduct' => $linksForProduct,
             'product' => $product,
+            'productPieces' =>$productPieces,
         ]);
     }
 

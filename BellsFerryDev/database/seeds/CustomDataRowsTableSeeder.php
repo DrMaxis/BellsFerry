@@ -217,6 +217,102 @@ class CustomDataRowsTableSeeder extends Seeder
             ])->save();
         }
 
+
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | Product Pieces
+        |--------------------------------------------------------------------------
+         */
+        $productPieceDataType = DataType::where('slug', 'productpieces')->firstOrFail();
+        $dataRow = $this->dataRow($productPieceDataType, 'id');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type' => 'hidden',
+                'display_name' => 'Id',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 0,
+                'add' => 0,
+                'delete' => 0,
+                'details' => '',
+                'order' => 1,
+            ])->save();
+        }
+        
+
+        $dataRow = $this->dataRow($productPieceDataType, 'name');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type' => 'text',
+                'display_name' => 'Name',
+                'required' => 1,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 1,
+                'details' => '',
+                'order' => 3,
+            ])->save();
+        }
+        $dataRow = $this->dataRow($productPieceDataType, 'length');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type' => 'number',
+                'display_name' => 'Length',
+                'required' => 0,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 0,
+                'details' => '',
+                'order' => 4,
+            ])->save();
+        }
+        $dataRow = $this->dataRow($productPieceDataType, 'width');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type' => 'number',
+                'display_name' => 'Width',
+                'required' => 0,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 0,
+                'details' => '',
+                'order' => 5,
+            ])->save();
+        }
+        $dataRow = $this->dataRow($productPieceDataType, 'height');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type' => 'number',
+                'display_name' => 'Height',
+                'required' => 0,
+                'browse' => 1,
+                'read' => 1,
+                'edit' => 1,
+                'add' => 1,
+                'delete' => 0,
+                'details' => '',
+                'order' => 6,
+            ])->save();
+        }
+
+
+
+
+
+
+
+
+
+
         /*
         |--------------------------------------------------------------------------
         | Categories
