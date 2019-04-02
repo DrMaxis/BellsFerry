@@ -1,6 +1,6 @@
 ## JJ International 
 
-A Web Application built for JJ International with the power of Laravel
+A Web Application built for JJ International with on top  of Laravel
 
 ## About Laravel
 
