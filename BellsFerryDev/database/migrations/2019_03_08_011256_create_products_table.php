@@ -20,10 +20,10 @@ class CreateProductsTable extends Migration
             $table->string('model')->unique();
             $table->string('sku')->unique();
             $table->string('details')->nullable();
-            $table->integer('shipping_weight')->nullable();
-            $table->integer('box_length')->nullable();
-            $table->integer('box_width')->nullable();
-            $table->integer('box_height')->nullable();
+            $table->double('shipping_weight')->nullable();
+            $table->double('box_length')->nullable();
+            $table->double('box_width')->nullable();
+            $table->double('box_height')->nullable();
             $table->text('description');
             $table->boolean('featured')->default(false);
             $table->boolean('new')->default(false);

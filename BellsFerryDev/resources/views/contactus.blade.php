@@ -20,5 +20,18 @@
 
 @endsection
 
-@section('xjs') 
+@section('xjs')
+{{-- <script type="text/javascript">
+    $(document).ready(function() {
+      $('.main-breadcrumb').css({
+      "background": "url('{{contentImage(setting('site.site_banner'))}}') no-repeat center center fixed",
+      "background-size": "cover"
+    });
+
+    });
+
+    
+    
+
+</script>  --}}
 @endsection

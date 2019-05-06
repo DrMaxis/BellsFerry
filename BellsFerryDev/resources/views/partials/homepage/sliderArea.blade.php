@@ -6,7 +6,7 @@
                 <!-- Slider Background  Image Start-->
                 <div id="slider" class="nivoSlider">
                   @foreach ($products  as $product)
-                     <img src="{{productImage($product->image)}}" data-thumb="{{productImage($product->image)}}" title="#htmlcaption{{$product->id}}" /> 
+                     <img id="simage" src="{{productImage($product->image)}}" data-thumb="{{productImage($product->image)}}" title="#htmlcaption{{$product->id}}" /> 
                   @endforeach
                     
                 </div>
@@ -30,3 +30,6 @@
             <!-- Main Slider Area End -->
         </div>
         <!-- Slider Area End -->
+
+
+        
